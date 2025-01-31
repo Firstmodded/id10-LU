@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Courses</title>
+    <link rel="stylesheet" href="css/resources.css">
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2>Student Portal</h2>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Group Work</a></li>
+            <li><a href="#" id="signin">Sign In</a></li>
+            <li><a href="#" id="signout" style="display: none;">Sign Out</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Available Courses</h1>
+
+        <!-- Filter Section -->
+        <div class="search-filter-container">
+            <input type="text" id="search-bar" class="search-bar" placeholder="Search for courses...">
+
+            <select id="professor-filter" class="filter-select">
+                <option value="all">Select Professor</option>
+            </select>
+
+            <!-- Added Sort By Dropdown -->
+            <select id="sort-by" class="filter-select">
+                <option value="credits">Sort by Credits</option>
+                <option value="course">Sort by Course</option>
+            </select>
+        </div>
+
+        <!-- Courses List -->
+        <div id="courses-list">
+            <!-- Courses will be displayed here -->
+        </div>
+    </div>
+
+    <script src="js/resources.js"></script>
+</body>
+</html>
