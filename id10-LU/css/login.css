@@ -155,7 +155,7 @@ section .contentBox .formBox .socials li:hover{
     background-color: #004aad;
 }
 
-section .contentBox .formBox .socials li img{
+section .contentBox .formBox .socials li svg{
     transform: scale(0.5);
     filter: invert(1);
 }
