@@ -47,48 +47,37 @@ h1 {
     margin-right: 20px;
 }
 
-/* Page Layout */
-:root {
-    --bodybackground-color: #f4f4f4;
-    --sidebarbackground-color: #333;
-    --sidebartext-color: #fff;
-    --hover-color: #444;
+/* Responsive Design */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .main-content {
+        padding: 20px;
+    }
 }
 
-body {
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    grid-template-rows: 60px 1fr;
-    grid-template-areas:
-        "side header"
-        "side main";
+/* Smaller Screens */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 20px;
+    }
+
+    .search-filter-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-bar, .filter-select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
 
-.header {
-    background-color: #fff;
-    grid-area: header;
-}
-
-.sidebar {
-    background-color: #333;
-    grid-area: side;
-    color: #fff;
-    box-sizing: border-box;
-}
-
-.main {
-    background-color: #f4f4f4;
-    padding: 25px;
-    grid-area: main;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas:
-        "c1 c2 c3"
-        "c4 c4 c5"
-        "c4 c4 c6";
-    gap: 20px;
+/* Mobile */
+@media (max-width: 480px) {
+    .main-content {
+        padding: 10px;
+    }
 }
 
 /* Sidebar Styles */
@@ -98,7 +87,7 @@ body {
     width: 250px;
     height: 100vh;
     padding-top: 30px;
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     display: flex;
@@ -164,12 +153,25 @@ body {
     box-sizing: border-box;
 }
 
+.main {
+    background-color: #f4f4f4;
+    padding: 25px;
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+        "c1 c2 c3"
+        "c4 c4 c5"
+        "c4 c4 c6";
+    gap: 20px;
+}
+
 /*Navbar*/
-/* Navbar */
 #navbar {
     background-color: #333;
-    grid-area: side;
-    color: #fff;
+  grid-area: side;
+  color: #fff;
     box-sizing: border-box;
     height: 100vh;
     width: 250px;
@@ -195,7 +197,11 @@ body {
 #navbar > ul > li:first-child {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 16px;
+    margin-bottom: 16px ;
+
+    .logo {
+        font-weight: 600;
+    }
 }
 
 #navbar ul li.active a {
@@ -226,49 +232,35 @@ body {
 }
 
 #navbar a:hover {
-    background-color: var(--hover-color);
+    background-color:var(--hover-color) ;
 }
 
+#toggle-btn {
+    margin-left: auto;
+    padding: 1em;
+    border: none;
+    border-radius: .5em;
+    background: none;
+    cursor: pointer;
+
+    svg {
+        transition: rotate 150ms ease;
+    }
+}
+
+#toggle-btn:hover {
+    background-color: var(--hover-color);
+}
 
 .rotate svg:last-child {
     rotate: 180deg;
 }
 
-#navbar ul {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
 #navbar ul li:last-child {
-    margin-top: auto;
+    padding-top: 330px;
 }
 
-/* Responsive Design (Media Queries) */
-
-/* Tablet */
-@media (max-width: 1024px) {
-    .main-content {
-        padding: 20px;
-    }
-}
-
-/* Smaller Screens */
 @media (max-width: 768px) {
-    .main-content {
-        padding: 20px;
-    }
-
-    .search-filter-container {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .search-bar, .filter-select {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
     body {
         grid-template-columns: 1fr;
         grid-template-rows: 60px auto 1fr;
@@ -316,21 +308,4 @@ body {
     .main {
         padding: 15px;
     }
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-    .main-content {
-        padding: 10px;
-    }
-}
-
-/* Particles Background */
-#particles-js {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh; /* Ensures it takes full screen */
-    z-index: -1; /* Makes sure particles are behind the content */
 }
