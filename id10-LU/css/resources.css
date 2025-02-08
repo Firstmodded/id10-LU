@@ -1,3 +1,23 @@
+body {
+    display: grid;
+    grid-template-columns: 250px auto; /* Sidebar takes 250px, main content gets remaining space */
+    grid-template-rows: 60px 1fr;
+    grid-template-areas:
+        "side header"
+        "side main";
+}
+
+.main-content {
+    grid-area: main;
+    padding: 25px;
+    width: 100%;
+    overflow-x: hidden; /* Prevent content from being squeezed */
+}
+
+#navbar {
+    position: fixed;
+}
+
 /* Course List Styling */
 section {
     margin-bottom: 40px;
@@ -29,6 +49,17 @@ section h2 {
     transition: transform 0.3s ease-in-out;
 }
 
+.course-item a:hover {
+    color: #333; /* Replace with the exact color of your navbar */
+    text-decoration: underline; /* Optional: Add back underline on hover */
+}
+
+.course-item a {
+    color: inherit; /* Inherit text color from parent */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Optional: Make it bold for better visibility */
+}
+
 /* Remove default link styles */
 .course-link {
     text-decoration: none;
@@ -41,6 +72,8 @@ section h2 {
 .course-item:hover {
     transform: scale(1.05);
     background-color: #dbe3e8;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow without blur */
+    filter: none; /* Ensure no blur effect */
 }
 
 /* Hover effect for the course link (title) */
