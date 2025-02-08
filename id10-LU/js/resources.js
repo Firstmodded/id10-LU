@@ -48,7 +48,7 @@ const courses = [
 ];
 
 const resources = [
-    { course: "M1100", name: "Algebra Notes", resourceType: "Lecture Notes", link: "https://example.com/m1100" },
+    { course: "M1100", name: "Algebra Notes", resourceType: "PDF", link: "https://example.com/m1100" },
     { course: "M1100", name: "Algebra Practice Problems", resourceType: "Practice Problems", link: "https://example.com/m1100-practice" },
     { course: "M1101", name: "Analysis Assignments", resourceType: "Assignments", link: "https://example.com/m1101-assignments" },
     { course: "P1100", name: "Mechanics Study Guide", resourceType: "Study Guide", link: "https://example.com/p1100-guide" },
@@ -155,129 +155,139 @@ const resources = [
         }
     }
 
+// Function to view the course portal (filter and sort resources for a particular course)
+function viewCoursePortal(courseCode) {
+    const filteredResources = resources.filter(resource => resource.course === courseCode); // Filter by course code
 
-    // Function to view the course portal (filter and sort resources for a particular course)
-    function viewCoursePortal(courseCode) {
-        const filteredResources = resources.filter(resource => resource.course === courseCode); // Now filter from the resources array
+    const coursesList = document.getElementById("courses-list");
+    coursesList.innerHTML = "";
 
-        const coursesList = document.getElementById("courses-list");
-        coursesList.innerHTML = "";
+    // Add a class to body to indicate we are in resource view
+    document.body.classList.add("course-view");
 
-        // Add a class to body to indicate we are in resource view
-        document.body.classList.add("course-view");
+    // Create and append "Go Back" button
+    const goBackButton = document.createElement("button");
+    goBackButton.textContent = "Go Back to Courses";
+    goBackButton.className = "go-back-button";
 
-        // Create and append "Go Back" button
-        const goBackButton = document.createElement("button");
-        goBackButton.textContent = "Go Back to Courses";
-        goBackButton.className = "go-back-button";
+    // When Go Back button is clicked
+    goBackButton.onclick = () => {
+        window.location.href = "resources.html"; // Change to the relevant page URL
+    };
 
-        // When Go Back button is clicked
-        goBackButton.onclick = () => {
-            // Redirect back to courses page (or wherever you want)
-            window.location.href = "resources.html"; // Change to the relevant page URL
-        };
+    coursesList.appendChild(goBackButton);
 
-        coursesList.appendChild(goBackButton);
+    const portalHeader = document.createElement("h2");
+    portalHeader.textContent = `Resources for Course: ${courseCode}`;
+    coursesList.appendChild(portalHeader);
 
-        const portalHeader = document.createElement("h2");
-        portalHeader.textContent = `Resources for Course: ${courseCode}`;
-        coursesList.appendChild(portalHeader);
+    // Create and append search bar for filtering resources
+    const searchBar = document.createElement("input");
+    searchBar.type = "text";
+    searchBar.id = "search-bar";
+    searchBar.placeholder = "Search resources...";
+    searchBar.className = "search-bar";
+    coursesList.appendChild(searchBar);
 
-        // Create and append search bar for filtering resources
-        const searchBar = document.createElement("input");
-        searchBar.type = "text";
-        searchBar.id = "search-bar";
-        searchBar.placeholder = "Search resources...";
-        searchBar.className = "search-bar";
-        coursesList.appendChild(searchBar);
+    // Create and append resource type filter dropdown
+    const resourceTypeFilter = document.createElement("select");
+    resourceTypeFilter.id = "resource-type-filter";
+    const resourceTypes = ["All", "PDF", "Exam", "Video", "Assignment"]; // Add more types as needed
+    resourceTypes.forEach(type => {
+        const option = document.createElement("option");
+        option.value = type.toLowerCase();
+        option.textContent = type;
+        resourceTypeFilter.appendChild(option);
+    });
+    coursesList.appendChild(resourceTypeFilter);
 
-        // Create and append sort dropdown for sorting resources
-        const sortBy = document.createElement("select");
-        sortBy.id = "sort-by";
-        const sortByOptions = ["Sort by", "Name", "Resource Type"];
-        sortByOptions.forEach(optionText => {
-            const option = document.createElement("option");
-            option.value = optionText.toLowerCase().replace(" ", "_");
-            option.textContent = optionText;
-            sortBy.appendChild(option);
-        });
-        coursesList.appendChild(sortBy);
+    // Create and append sort dropdown for sorting resources
+    const sortBy = document.createElement("select");
+    sortBy.id = "sort-by";
+    const sortByOptions = ["Sort by", "Name", "Resource Type"];
+    sortByOptions.forEach(optionText => {
+        const option = document.createElement("option");
+        option.value = optionText.toLowerCase().replace(" ", "_");
+        option.textContent = optionText;
+        sortBy.appendChild(option);
+    });
+    coursesList.appendChild(sortBy);
 
-        // Filter and sort resources whenever search or sort changes
-        searchBar.addEventListener("input", () => {
-            const searchQuery = searchBar.value.toLowerCase();
-            const filteredResourcesBySearch = filterResources(filteredResources, searchQuery);
-            const sortedFilteredResources = sortResources(filteredResourcesBySearch, sortBy.value);
-            displayFilteredResources(sortedFilteredResources);
-        });
+    // Filter and sort resources whenever search, filter, or sort changes
+    searchBar.addEventListener("input", updateResourceDisplay);
+    resourceTypeFilter.addEventListener("change", updateResourceDisplay);
+    sortBy.addEventListener("change", updateResourceDisplay);
 
-        sortBy.addEventListener("change", () => {
-            const searchQuery = searchBar.value.toLowerCase();
-            const filteredResourcesBySearch = filterResources(filteredResources, searchQuery);
-            const sortedFilteredResources = sortResources(filteredResourcesBySearch, sortBy.value);
-            displayFilteredResources(sortedFilteredResources);
-        });
-
-        // Function to filter resources by search query
-        function filterResources(resources, searchQuery) {
-            return resources.filter(resource => 
-                resource.name.toLowerCase().includes(searchQuery) ||
-                resource.resourceType.toLowerCase().includes(searchQuery)
-            );
-        }
-
-        // Function to sort resources based on selected criterion
-        function sortResources(resources, sortBy) {
-            switch(sortBy) {
-                case "name":
-                    return resources.sort((a, b) => a.name.localeCompare(b.name));
-                case "resource_type":
-                    return resources.sort((a, b) => a.resourceType.localeCompare(b.resourceType));
-                default:
-                    return resources;
-            }
-        }
-
-        // Function to display filtered and sorted resources
-        function displayFilteredResources(filteredResources) {
-            const portalContainer = document.createElement("div");
-            portalContainer.className = "portal-container";
-
-            if (filteredResources.length === 0) {
-                const noResourcesMessage = document.createElement("p");
-                noResourcesMessage.textContent = "No resources found.";
-                portalContainer.appendChild(noResourcesMessage);
-            }
-
-            filteredResources.forEach(resource => {
-                const resourceItem = document.createElement("div");
-                resourceItem.className = "course-item";
-
-                const resourceName = document.createElement("h3");
-                resourceName.textContent = `${resource.resourceType}: ${resource.name}`;
-
-                const resourceLink = document.createElement("a");
-                resourceLink.href = resource.link;
-                resourceLink.target = "_blank";
-                resourceLink.textContent = "Access Resource";
-
-                resourceItem.appendChild(resourceName);
-                resourceItem.appendChild(resourceLink);
-                portalContainer.appendChild(resourceItem);
-            });
-
-            // Clear previous content and append the new filtered resources
-            const existingPortalContainer = document.querySelector(".portal-container");
-            if (existingPortalContainer) {
-                existingPortalContainer.remove();
-            }
-            coursesList.appendChild(portalContainer);
-        }
-
-        // Initially display all resources for the course
-        displayFilteredResources(filteredResources);
+    // Function to filter and sort resources based on search, resource type, and sort criteria
+    function updateResourceDisplay() {
+        const searchQuery = searchBar.value.toLowerCase();
+        const selectedType = resourceTypeFilter.value;
+        const filteredBySearch = filterResources(filteredResources, searchQuery, selectedType);
+        const sortedResources = sortResources(filteredBySearch, sortBy.value);
+        displayFilteredResources(sortedResources);
     }
 
+    // Function to filter resources based on search query and selected resource type
+    function filterResources(resources, searchQuery, resourceType) {
+        return resources.filter(resource => {
+            const matchesSearch = resource.name.toLowerCase().includes(searchQuery) ||
+                                  resource.resourceType.toLowerCase().includes(searchQuery);
+            const matchesType = resourceType === "all" || resource.resourceType.toLowerCase() === resourceType;
+            return matchesSearch && matchesType;
+        });
+    }
+
+    // Function to sort resources based on selected criterion
+    function sortResources(resources, sortBy) {
+        switch (sortBy) {
+            case "name":
+                return resources.sort((a, b) => a.name.localeCompare(b.name));
+            case "resource_type":
+                return resources.sort((a, b) => a.resourceType.localeCompare(b.resourceType));
+            default:
+                return resources;
+        }
+    }
+
+    // Function to display filtered and sorted resources
+    function displayFilteredResources(filteredResources) {
+        const portalContainer = document.createElement("div");
+        portalContainer.className = "portal-container";
+
+        if (filteredResources.length === 0) {
+            const noResourcesMessage = document.createElement("p");
+            noResourcesMessage.textContent = "No resources found.";
+            portalContainer.appendChild(noResourcesMessage);
+        }
+
+        filteredResources.forEach(resource => {
+            const resourceItem = document.createElement("div");
+            resourceItem.className = "course-item";
+
+            const resourceName = document.createElement("h3");
+            resourceName.textContent = `${resource.resourceType}: ${resource.name}`;
+
+            const resourceLink = document.createElement("a");
+            resourceLink.href = resource.link;
+            resourceLink.target = "_blank";
+            resourceLink.textContent = "Access Resource";
+
+            resourceItem.appendChild(resourceName);
+            resourceItem.appendChild(resourceLink);
+            portalContainer.appendChild(resourceItem);
+        });
+
+        // Clear previous content and append the new filtered resources
+        const existingPortalContainer = document.querySelector(".portal-container");
+        if (existingPortalContainer) {
+            existingPortalContainer.remove();
+        }
+        coursesList.appendChild(portalContainer);
+    }
+
+    // Initially display all resources for the course
+    updateResourceDisplay();  // Use the update function to display the resources when the page loads
+}
 
         // Initialize everything
         populateFilters();
