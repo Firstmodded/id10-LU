@@ -11,12 +11,12 @@
     padding: 25px;
     grid-area: main;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 0.8fr 1.2fr;
+    grid-template-rows: 1.3fr 0.7fr 1fr;
     grid-template-areas:
         "c1 c1 c3"
-        "c1 c1 c5"
-        "c1 c1 c6";
+        "c2 c2 c4"
+        "c2 c2 c4";
     gap: 20px;
 }
 
@@ -41,13 +41,6 @@
     grid-area: c4;
 }
 
-.card:nth-child(5) {
-    grid-area: c5;
-}
-
-.card:nth-child(6) {
-    grid-area: c6;
-}
 
 @media (max-width: 925px) {
     .main {
@@ -66,9 +59,9 @@
 /*to do list*/
 .todo-app {
     width: 100%;
-    max-width: 540px;
+    max-width: 560px;
     background-color: white;
-    margin: 40px auto 20px;
+    margin: 40px auto 10px;
     padding: 20px 30px 70px;
     border-radius: 10px;
 }
@@ -116,7 +109,7 @@
     background-color: rgb(0, 0, 0);
 }
 
-#list-c1 li {
+#list-c2 li {
     list-style: none;
     font-size: 17px;
     padding: 17px 8px 12px 50px;
@@ -125,7 +118,7 @@
     position: relative;
 }
 
-#list-c1 li::before {
+#list-c2 li::before {
     content: '';
     position: absolute;
     height: 28px;
@@ -138,16 +131,16 @@
     left: 8px;
 }
 
-#list-c1 li.checked {
+#list-c2 li.checked {
     color: #555;
     text-decoration: line-through;
 }
 
-#list-c1 li.checked::before {
+#list-c2 li.checked::before {
     background-image: url(../Img/checked.png);
 }
 
-#list-c1 li todo-span {
+#list-c2 li span {
     position: absolute;
     right: 0;
     top: 5px;
@@ -160,7 +153,7 @@
     border-radius: 50%;
 }
 
-#list-c1 li todo-span:hover {
+#list-c2 li span:hover {
     background: #edeef0;
 }
     

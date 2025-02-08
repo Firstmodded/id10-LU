@@ -54,30 +54,28 @@
     </nav>
         
     <main class="main">
-        <div class="card" id="c1">
+        <div class="card"></div>
+        <div class="card" id="c2">
             <div class="todo-app">
                 <h2>To-Do List <img src="Img/checklist_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png"></h2>
                 <div class="row">
                     <input type="text" id="input-box" placeholder="Add your text" class="todo-input">
-                    <button onclick="addTask()" class="todo-button">Add</button>
+                    <button onclick="addTask()"  id="add-task-btn" class="todo-button" >Add</button>
                 </div>
-                <ul id="list-c1">
+                <ul id="list-c2">
                     <!--<li class="checked">task 1</li>
                     <li>task 1</li>
                     <li>task 1</li> -->
                 </ul>
             </div>
-        </div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
+        </div> 
         <div class="card"></div>
         <div class="card"></div>
     </main>
 
     <div id="particles-js"></div>
+    <script src="js/dashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script> <!-- CDN for particles.js -->
     <script src="js/main.js"></script>
-    <script src="js/dashboard.js"></script>
 </body>
 </html>

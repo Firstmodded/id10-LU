@@ -1,4 +1,4 @@
-const toggleBtn = document.getElementById('toggle-btn')
+/*const toggleBtn = document.getElementById('toggle-btn')
 const navbar = document.getElementById('navbar')
 
 function toggleSideBar(){
@@ -10,11 +10,12 @@ document.getElementById('toggle-btn').addEventListener('click', function() {
     var navbar = document.getElementById('navbar');
     navbar.classList.toggle('open');
 });
-
+*/
 /*TODO List*/
 
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-c1");
+document.getElementById("add-task-btn").addEventListener("click", addTask);
 
 function addTask(){
     if(inputBox.value == ''){
@@ -24,7 +25,7 @@ function addTask(){
         let li = document.createElement("li");
         li.innerHTML = inputBox.value;
         listContainer.appendChild(li);
-        let span = document.createElement("todo-span");
+        let span = document.createElement("span");
         span.innerHTML = "\u00d7"
         li.appendChild(span);
     }
@@ -51,4 +52,4 @@ function showTask(){
     listContainer.innerHTML = localStorage.getItem("data");
 }
 showTask();
-localStorage.clear();
+//localStorage.clear();
