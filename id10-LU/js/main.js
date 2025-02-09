@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "type": "circle"
             },
             "opacity": {
-                "value": 2,
+                "value": 2, 
                 "random": true
             },
             "size": {
