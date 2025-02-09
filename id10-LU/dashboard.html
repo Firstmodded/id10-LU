@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/dashboard.css">
     <title>Dashboard Page</title>
+
+     <!-- ICONS -->
+     <script src="https://kit.fontawesome.com/6f3103b13c.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <header class="header">
@@ -56,14 +60,16 @@
     </nav>
         
     <main class="main">
-        <div class="card" id="c1">
+        <div class="card"></div>
+        
+        <div class="card" id="c2">
             <div class="todo-app">
                 <h2>To-Do List <img src="Img/checklist_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png"></h2>
                 <div class="row">
                     <input type="text" id="input-box" placeholder="Add your text" class="todo-input">
                     <button id="add-task-btn" class="todo-button">Add</button>
                 </div>
-                <ul id="list-c1">
+                <ul id="list-c2">
                     <!--<li class="checked">task 1</li>
                     <li>task 1</li>
                     <li>task 1</li> -->
@@ -71,8 +77,34 @@
             </div>
         </div>
         <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
+        <div class="card" id="c4">
+            <section class="pomo-section">
+                <div class="pomo-container">
+                
+                    <div class="painel">
+                        <p id="work">work</p>
+                        <p id="break">break</p>
+                    </div>
+        
+                    <div class="timer">
+                        <div class="circle">
+                            <div class="time">
+                                <p id="minutes"></p>
+                                <p>:</p>
+                                <p id="seconds"></p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="controls">
+                        <button id="start" onclick="start()"><i class="fa-solid fa-play"></i></button>
+        
+                        <a id="reset" href="./"><i class="fa-solid fa-arrow-rotate-left"></i></a>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
         <div class="card"></div>
         <div class="card"></div>
     </main>
