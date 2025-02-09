@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Grades.css">
+    <title>Grade Calculator</title>
+</head>
+<body>
+    <!-- Navbar Section -->
+    <nav id="navbar">
+        <ul>
+            <li><span class="logo">Oravuim</span></li>
+            <li><a href="dashboard.html">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" fill="#e8eaed">
+                    <path d="M520-600v-240h320v240H520ZM120-440v-400h320v400H120Zm400 320v-400h320v400H520Zm-400 0v-240h320v240H120Zm80-400h160v-240H200v240Zm400 320h160v-240H600v240Zm0-480h160v-80H600v80ZM200-200h160v-80H200v80Zm160-320Zm240-160Zm0 240ZM360-280Z"/>
+                </svg>
+                Dashboard
+                </a>
+            </li>
+            <li><a href="resources.html">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" fill="#e8eaed">
+                    <path d="M240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h480q33 0 56.5 23.5T800-800v640q0 33-23.5 56.5T720-80H240Zm0-80h480v-640h-80v280l-100-60-100 60v-280H240v640Zm0 0v-640 640Zm200-360 100-60 100 60-100-60-100 60Z"/>
+                </svg>
+                Courses
+                </a>
+            </li>
+            <li><a href="notes.html">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" fill="#e8eaed">
+                    <path d="M440-240h80v-120h120v-80H520v-120h-80v120H320v80h120v120ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/>
+                </svg>
+                Notes
+                </a>
+            </li>
+            <li><a href="contact.html">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" fill="#e8eaed">
+                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                </svg>
+                Contact Us
+                </a>
+            </li>
+            <li><a href="login.html">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" fill="#e8eaed">
+                    <path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/>
+                </svg>
+                Sign Up
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Grade Calculator Header -->
+    <h1>Evaluation Calculator</h1>
+    <div class="calculator-carousel">
+        <div class="year-calculator" id="year3">
+                        <!-- Form to input grades for Semester 1 and 2 -->
+            <form>
+                <div class="semester">
+                    <h2>Semester 5</h2>
+                    <label for="DHR300">DHR300 (3c):</label>
+                    <input type="number" id="DHR300" min="0" max="100">
+                    
+                    <label for="I3301">I3301 (4c):</label>
+                    <input type="number" id="I3301" min="0" max="100">
+                    
+                    <label for="I3302">I3302 (4c):</label>
+                    <input type="number" id="I3302" min="0" max="100">
+                    
+                    <label for="I3303">I3303 (4c):</label>
+                    <input type="number" id="I3303" min="0" max="100">
+                    
+                    <label for="I3304">I3304 (4c):</label>
+                    <input type="number" id="I3304" min="0" max="100">
+                    
+                    <label for="I3305">I3305 (3c):</label>
+                    <input type="number" id="I3305" min="0" max="100">
+                    
+                    <label for="I3306">I3306 (3c):</label>
+                    <input type="number" id="I3306" min="0" max="100">
+                    
+                    <label for="I3350">I3350 (5c):</label>
+                    <input type="number" id="I3350" min="0" max="100">
+                    
+                    <label for="I3351">I3351 (5c):</label>
+                    <input type="number" id="I3351" min="0" max="100">
+                    
+                    <div id="sem5Result"></div>
+                </div>
+                
+                <div class="semester">
+                    <h2>Semester 6</h2>
+                    <label for="I3307">I3307 (4c):</label>
+                    <input type="number" id="I3307" min="0" max="100">
+                    
+                    <label for="I3308">I3308 (4c):</label>
+                    <input type="number" id="I3308" min="0" max="100">
+                    
+                    <label for="I3330">I3330 (3c):</label>
+                    <input type="number" id="I3330" min="0" max="100">
+                    
+                    <label for="I3331">I3331 (3c):</label>
+                    <input type="number" id="I3331" min="0" max="100">
+                    
+                    <label for="I3332">I3332 (3c):</label>
+                    <input type="number" id="I3332" min="0" max="100">
+                    
+                    <label for="I3333">I3333 (3c):</label>
+                    <input type="number" id="I3333" min="0" max="100">
+                    
+                    <label for="I3340">I3340 (4c):</label>
+                    <input type="number" id="I3340" min="0" max="100">
+                    
+                    <label for="I3341">I3341 (4c):</label>
+                    <input type="number" id="I3341" min="0" max="100">
+                    
+                    <label for="I3342">I3342 (3c):</label>
+                    <input type="number" id="I3342" min="0" max="100">
+                    
+                    <label for="I3343">I3343 (3c):</label>
+                    <input type="number" id="I3343" min="0" max="100">
+                    
+                    <label for="I3344">I3344 (6c):</label>
+                    <input type="number" id="I3344" min="0" max="100">
+                    
+                    <label for="L3300">L3300 (3c):</label>
+                    <input type="number" id="L3300" min="0" max="100">
+                    
+                    <div id="sem6Result"></div>
+                </div>
+                
+                <button id="clearButton" type="button">Clear</button>
+                <button id="downloadButton" type="button">Download Results</button>
+
+            </form>
+            <!-- Display Results -->
+            <h3>Year 3 Evaluation: <span id="result"></span></h3>
+        </div>
+    </div>
+
+    <script src="js/y3.js"></script>
+
+</body>
+</html>

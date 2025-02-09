@@ -87,7 +87,7 @@ h1 {
     --sidebartext-color: #fff;
     --hover-color: #444;
 }
-
+/* Existing Sidebar Styles */
 .sidebar {
     background-color: var(--sidebarbackground-color);
     grid-area: side;
@@ -132,7 +132,7 @@ h1 {
     background-color: var(--hover-color);
 }
 
-/* Navbar */
+/* Navbar Styles */
 #navbar {
     background-color: var(--sidebarbackground-color);
     grid-area: side;
@@ -147,7 +147,7 @@ h1 {
     align-self: self-start;
     transition: 300ms ease-in-out;
     overflow: hidden;
-    white-space: nowrap; /* Corrected text-wrap */
+    white-space: nowrap;
 }
 
 #navbar.close {
@@ -200,6 +200,43 @@ h1 {
 
 #navbar ul li:last-child {
     margin-top: auto;
+}
+
+/*Submenu */
+#navbar li.has-submenu {
+    position: relative; /* Required for positioning the submenu */
+}
+
+#navbar li.has-submenu .submenu {
+    display: none; /* Hide the submenu by default */
+    position: absolute; /* Position the submenu to the right of the parent item */
+    top: 0;
+    left: 100%; /* Place submenu to the right */
+    width: 100%; /* Match the width to the parent menu item */
+    background-color: var(--sidebarbackground-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding: 10px 0;
+    z-index: 100000000; /* Ensure submenu appears above other elements */
+}
+
+#navbar li.has-submenu:hover .submenu {
+    display: block; /* Show submenu when the parent item is hovered */
+}
+
+.submenu li {
+    margin: 0;
+}
+
+.submenu li a {
+    padding: 10px 20px;
+    color: var(--sidebartext-color);
+    background-color: var(--sidebarbackground-color);
+    transition: background-color 0.3s ease;
+}
+
+.submenu li a:hover {
+    background-color: var(--hover-color);
 }
 
 /* Responsive Design (Media Queries) */
