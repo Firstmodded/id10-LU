@@ -163,6 +163,8 @@ h1 {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 16px;
+    margin-right: 60px;
+    font-size: 2em;
 }
 
 #navbar ul li.active a {
