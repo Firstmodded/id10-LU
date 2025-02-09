@@ -17,13 +17,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             },
             "color": {
-                "value": "#000000"
+                "value": "#284b63"
             },
             "shape": {
                 "type": "circle"
             },
             "opacity": {
-                "value": 0.5,
+                "value": 2,
                 "random": true
             },
             "size": {
