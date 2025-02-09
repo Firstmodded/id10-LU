@@ -1,19 +1,20 @@
 
 :root {
-    --bodybackground-color: #f4f4f4;
-    --sidebarbackground-color: #333;
-    --sidebartext-color:#fff;
-    --hover-color:#444;
+    --primarybg-color:#ffffff;
+    --secondarybg-color:#d9d9d9;
+    --text-color:#353535;
+    --buttons-color:#284b63;
+    --effects-color:#3c6e71;
 }
 
 .main {
     margin-top: 100px;
-    background-color: #f4f4f4;
+    background-color: var(--primarybg-color);
     padding: 25px;
     grid-area: main;
     display: grid;
-    grid-template-columns: 1fr 0.8fr 1.2fr;
-    grid-template-rows: 1.4fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas:
         "c1 c1 c3"
         "c2 c2 c4"
@@ -22,7 +23,7 @@
 }
 
 .card {
-    background-color: grey;
+    background-color: var(--secondarybg-color);
     border-radius: 10px;
 }
 
@@ -68,14 +69,14 @@
 .todo-app {
     width: 100%;
     max-width: 540px;
-    background-color: white;
+    background-color: var(--primarybg-color);
     margin: 40px auto 20px;
     padding: 20px 30px 70px;
     border-radius: 10px;
 }
 
 .todo-app h2 {
-    color: black;
+    color: var(--text-color);
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -84,14 +85,14 @@
 .todo-app h2 img {
     width: 30px;
     margin-left: 10px;
-    background-color: rgb(0, 0, 0);
+    background-color: var(--text-color);
 }
 
 .row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(124, 118, 118);
+    background-color: var(--secondarybg-color);
     border-radius: 30px;
     padding-left: 20px;
     margin-bottom: 25px;
@@ -110,11 +111,11 @@
     border: none;
     outline: none;
     padding: 16px 50px;
-    color: white;
+    color: var(--primarybg-color);
     font-size: 16px;
     cursor: pointer;
     border-radius: 40px;
-    background-color: rgb(0, 0, 0);
+    background-color: var(--buttons-color);
 }
 
 #list-c2 li {
@@ -140,7 +141,7 @@
 }
 
 #list-c2 li.checked {
-    color: #555;
+    color: var(--text-color);
     text-decoration: line-through;
 }
 
@@ -155,129 +156,70 @@
     width: 40px;
     height: 40px;
     font-size: 22px;
-    color: #555;
+    color: var(--text-color);
     line-height: 40px;
     text-align: center;
     border-radius: 50%;
 }
 
 #list-c2 li span:hover {
-    background: #edeef0;
+    background: var(--secondarybg-color);
 }
 
 /*Pomodoro timer*/
-.pomo-section p,
-i,
-h1 {
-    color: rgb(240, 231, 231);
-}
-
-.pomo-section i {
-    font-size: 3.2rem;
-}
-
-.pomo-section h1 {
-    font-size: 3.2rem;
-}
-
-/* ==== CONTENT ==== */
-
-.pomo-section {
-    display: flex;
-    align-items: center;
-    height: 100%;
-}
-
 .pomo-container {
-    width: min(42.5rem, 100%);
-    margin-inline: auto;
-    padding-inline: 2rem;
+    margin: 50px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    color: var(--text-color);
+    background-color: var(--primarybg-color);
+    border-radius: 2em;
+    padding: 4em 3em;
 }
 
-.painel {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    text-align: center;
-    width: 10rem;
-    margin-block: 3rem;
-    padding: 1rem;
-    border-radius: 10rem;
-    -webkit-box-shadow: 0px 0px 15px 10px black; 
-    box-shadow: 0px 0px 15px 10px black;
+.pomo-title {
+    font-size: 2.5em;
 }
 
-.painel p {
-    opacity: .8;
-    transition: 1s ease-in;
-}
-
-.painel p.active {
-    opacity: 1;
-    color: black;
+hr {
+    width: 100%;
+    background-color: var(--buttons-color);
+    height: 5px;
+    border-radius: 1em ;
+    border: none;
 }
 
 .timer {
+    font-size: 6em;
+    font-weight: 700;
+}
+
+.pomo-button-wrapper {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 22rem;
-    height: 22rem;
-    border-radius: 50%;
-    -webkit-box-shadow: 0px 0px 15px 10px black; 
-    box-shadow: 0px 0px 15px 10px black;
+    gap: 1em;
 }
 
-.circle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 18rem;
-    height: 18rem;
-    border-radius: 50%;
-    background-color: white;
-    position: relative;
-}
-
-.circle::before {
-    content: '';
-    position: absolute;
-    width: 95%;
-    height: 95%;
-    border-radius: 50%;
-    background-color: black;
-}
-
-.time {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-}
-
-.time p {
-    font-size: 4rem;
-}
-
-.time p:nth-of-type(2) {
-    position: relative;
-    top: -.5rem;
-    margin-inline: 1rem;
-}
-
-.controls {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-}
-
-.controls button {
+.pomo-button {
+    font-size: 1.2em;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 0.5em 1.5em;
     border: none;
-    background-color: transparent;
+    border-radius: 0.5em;
+    color: var(--effects-color);
+    background-color: var(--buttons-color);
     cursor: pointer;
+    transition: 0.2s ease-in-out;
 }
 
-.controls #reset {
-    display: none;
+.pomo-button:hover {
+    transform: translateY(-10px);
+    background-color: var(--effects-color);
+}
+
+#start,#stop,#reset {
+    color: var(--primarybg-color);
 }

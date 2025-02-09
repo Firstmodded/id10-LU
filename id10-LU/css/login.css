@@ -1,9 +1,10 @@
-:root{
-    --main-color:#ffffff;
-    --secondary-color:#f5f5f5;
-    --accent-color:#004aad;
-    --text-color:#333333;
-    --highlights-color:#4caf50;
+
+:root {
+    --primarybg-color:#ffffff;
+    --secondarybg-color:#d9d9d9;
+    --text-color:#353535;
+    --buttons-color:#284b63;
+    --effects-color:#3c6e71;
 }
 
 *{
@@ -33,7 +34,7 @@ section .imgBox::before{
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(#004aad,#333333);
+    background: linear-gradient(var(--buttons-color),var(--text-color));
     z-index: 1;
     mix-blend-mode: screen;
 }
@@ -61,12 +62,12 @@ section .contentBox .formBox{
 }
 
 section .contentBox .formBox h2{
-    color: #333333;
+    color: var(--text-color);
     font-weight: 600;
     font-size: 1.5em;
     text-transform: uppercase;
     margin-bottom: 20px;
-    border-bottom: 4px solid #004aad;
+    border-bottom: 4px solid var(--buttons-color);
     display: inline-block;
     letter-spacing: 1px;
 }
@@ -79,7 +80,7 @@ section .contentBox .formBox .inputBox span{
     font-size: 16px;
     margin-bottom: 5px;
     display: inline-block;
-    color: #333333;
+    color: var(--text-color);
     font-weight: 300;
     font-size: 16px;
     letter-spacing: 1px;
@@ -90,7 +91,7 @@ section .contentBox .formBox .inputBox input{
     padding: 10px 20px;
     outline: none;
     font-weight: 400;
-    border: 1px solid #333333;
+    border: 1px solid var(--text-color);
     font-size: 16px;
     letter-spacing: 1px;
     color: #333333;
@@ -99,7 +100,7 @@ section .contentBox .formBox .inputBox input{
 }
 
 section .contentBox .formBox .inputBox input[type="submit"]{
-    background: #004aad;
+    background: var(--buttons-color);
     color: #fff;
     outline: none;
     font-weight: 500;
@@ -107,26 +108,26 @@ section .contentBox .formBox .inputBox input[type="submit"]{
 }
 
 section .contentBox .formBox .inputBox input[type="submit"]:hover{
-    background: #3366cc;
+    background: var(--effects-color);
 }
 
 section .contentBox .formBox .remember{
     margin-bottom: 10px;
-    color: #333333;
+    color: var(--text-color);
     font-weight: 400;
     font-size: 14px;
 }
 
 section .contentBox .formBox .inputBox p{
-    color: #333333;
+    color: var(--text-color);
 }
 
 section .contentBox .formBox .inputBox p a{
-    color: #004aad;
+    color: var(--buttons-color);
 }
 
 section .contentBox .formBox h3{
-    color: #333333;
+    color: var(--text-color);
     text-align: center;
     margin: 80px 0 10px;
     font-weight: 500;
@@ -152,7 +153,7 @@ section .contentBox .formBox .socials li{
 }
 
 section .contentBox .formBox .socials li:hover{
-    background-color: #004aad;
+    background-color: var(--effects-color);
 }
 
 section .contentBox .formBox .socials li svg{
