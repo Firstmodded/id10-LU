@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/navbar.css">
     <title>Dashboard Page</title>
 
      <!-- ICONS -->
@@ -73,10 +74,15 @@
         </ul>
     </nav>
     
-        
+    <div class="widget-container">
+        <!-- Each widget will have its own container -->
+        <div class="widget" id="widget-container-1"></div>
+        <div class="widget" id="widget-container-2"></div>
+        <div class="widget" id="widget-container-3"></div>
+        <!-- Add more widget containers as needed -->
+    </div>
     <main class="main">
         <div class="card"></div>
-        
         <div class="card" id="c2">
             <div class="todo-app">
                 <h2>To-Do List <img src="Img/checklist_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png"></h2>
@@ -98,8 +104,6 @@
                 <h1 class="pomo-title">Pomodoro Timer</h1>
         
                 <hr>
-        
-        
                 <p class="timer" id="timer">25:00</p>
                 <div class="pomo-button-wrapper">
                     <button class="pomo-button" id="start">Start</button>
@@ -115,6 +119,8 @@
 
     <div id="particles-js"></div>
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script> <!-- CDN for particles.js -->
+    <script src="js/particles.js"></script>
+    <script src="js/navbar.js"></script>
     <script src="js/main.js"></script>
     <script src="js/dashboard.js"></script>
 </body>

@@ -7,6 +7,12 @@ body {
         "side main";
 }
 
+h1 {
+    color: var(--text-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 .main-content {
     grid-area: main;
     padding: 25px;
@@ -14,6 +20,26 @@ body {
     overflow-x: hidden; /* Prevent content from being squeezed */
 }
 
+/* Search and Filter Area */
+.search-filter-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.search-bar,
+.filter-select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 48%;
+}
+
+.search-bar {
+    margin-right: 20px;
+}
+
+/*navbar edit for scrolling*/
 #navbar {
     position: fixed;
 }
@@ -115,35 +141,4 @@ body.course-view .search-filter-container {
 
 .go-back-button:hover {
     background-color: #333;
-}
-
-/* Responsive Adjustments for Courses */
-
-/* Tablet */
-@media (max-width: 1024px) {
-    .course-item {
-        flex: 1 1 calc(50% - 20px);
-        max-width: calc(50% - 20px);
-    }
-}
-
-/* Smaller Screens */
-@media (max-width: 768px) {
-    .course-item {
-        flex: 1 1 calc(50% - 20px);
-        max-width: calc(50% - 20px);
-    }
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-    .course-item {
-        flex: 1 1 100%;
-        max-width: 100%;
-    }
-
-    .go-back-button {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
 }
