@@ -172,9 +172,13 @@ h1 {
 
 #navbar ul li.active a {
     color: var(--primarybg-color);
+
+    svg {
+        fill: var(--text-color);
+    }
 }
 
-#navbar a, #navbar .logo {
+#navbar a,#navbar .dropdown-btn, #navbar .logo {
     border-radius: .5em;
     padding: .85em;
     text-decoration: none;
@@ -184,17 +188,52 @@ h1 {
     gap: 1em;
 }
 
+.dropdown-btn {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+}
+
 #navbar svg {
     flex-shrink: 0;
     fill: var(--primarybg-color);
 }
 
-#navbar a span {
+#navbar a span, #navbar .dropdown-btn span {
     flex-grow: 1;
 }
 
-#navbar a:hover {
+#navbar a:hover , #navbar .dropdown-btn:hover{
     background-color: var(--effects-color);
+}
+
+#navbar .sub-menu {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: 300ms ease-in-out;
+
+    > div {
+        overflow: hidden;
+    }
+}
+
+#navbar .sub-menu.show {
+    grid-template-rows: 1fr;
+}
+
+.dropdown-btn svg {
+    transition: 200ms ease;
+}
+
+.rotate svg:last-child {
+    rotate: 180deg;
+}
+
+#navbar .sub-menu a {
+    padding-left: 2em;
 }
 
 #navbar ul {

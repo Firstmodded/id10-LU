@@ -47,3 +47,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log("particles.js initialized successfully!");
 });
+
+
+/*Sub-menu*/
+
+function toggleSubMenu(button){
+    button.nextElementSibling.classList.toggle('show');
+    button.classList.toggle('rotate');
+}
