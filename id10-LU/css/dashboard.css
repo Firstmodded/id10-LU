@@ -1,138 +1,183 @@
-
 :root {
-    --primarybg-color:#ffffff;
-    --secondarybg-color:#d9d9d9;
-    --text-color:#353535;
-    --buttons-color:#284b63;
-    --effects-color:#3c6e71;
+    --primarybg-color: #ffffff; /* Light background */
+    --secondarybg-color: #f0f0f0; /* Light gray for cards */
+    --text-color: #353535; /* Dark text */
+    --buttons-color: #284b63; /* Dark blue for buttons */
+    --effects-color: #3c6e71; /* Teal for hover effects */
 }
 
 /* Body and Layout */
 body {
     font-family: Arial, sans-serif;
     height: 100vh;
+    margin: 0;
     display: grid;
-    grid-template-columns: 250px 1fr;
-    grid-template-rows: 60px 1fr;
+    grid-template-columns: 250px 300px 1fr; /* Navbar, Widgets, Main Content */
+    grid-template-rows: 100px 1fr;
     grid-template-areas:
-        "side header"
-        "side main";
-}
-
-.main {
-    margin-top: 100px;
-    background-color: var(--primarybg-color);
-    padding: 25px;
-    grid-area: main;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas:
-        "c1 c1 c3"
-        "c2 c2 c4"
-        "c2 c2 c4";
+        "side widgets header"
+        "side widgets main";
     gap: 10px;
+    padding: 0px;
+    background-color: var(--primarybg-color);
+    box-sizing: border-box;
 }
 
-/* Styling the header */
-.header {
-    color: var(--text-color);
-    padding-top: 60px;
-    text-align: center;
-    grid-area: header;
-    position: relative;
-    width: 100%; /* Ensures it spans the full width */
-    height: 100px; /* Adjust height as needed */
+/* Widgets Section */
+.widgets-section {
+    grid-area: widgets;
+    background-color: var(--secondarybg-color);
+    border-radius: 10px; /* Rounded corners for the section */
+    padding: 20px; /* Add padding to prevent content from touching the edges */
+    height: calc(100vh - 20px);
+    overflow: visible; /* Change to visible to prevent clipping */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Widget Container */
+.widget-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 20px; /* Space between widgets */
+    padding: 10px; /* Add padding to prevent widgets from touching the edges */
+    height: 100%; /* Ensure the container takes up the full height */
 }
 
-.header-content h1 {
-    margin: 0;
-    font-size: 30px;
+/* Individual Widgets */
+.widget {
+    background-color: var(--primarybg-color);
+    border-radius: 10px; /* Rounded corners for widgets */
+    padding: 20px; /* Increased padding for a larger feel */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensure content doesn't overflow the widget's rounded corners */
+    min-height: 250px; /* Increased minimum height for larger widgets */
+    width: 100%; /* Ensure widgets take up the full width */
+    height: 100%; /* Ensure the widget takes up the full height of the row */
 }
 
-.header-content p {
-    margin-top: 5px;
-    font-size: 17px;
+/* Ensure iframes inside widgets don't overflow */
+.widget iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px; /* Match the widget's border-radius */
+    overflow: hidden; /* Prevent iframe content from overflowing */
 }
 
-.header-content span {
-    font-weight: bold;
-    color: var(--text-color); /* Highlight the major and semester with a different color */
-}
-
-h1 {
+.widgets-heading {
+    font-size: 1.5em;
+    font-weight: 600;
     color: var(--text-color);
     margin-bottom: 20px;
     text-align: center;
+}
+
+/* Full-width widget inside tools container */
+.full-width-widget {
+    width: 100%;
+    grid-column: 1 / 2; /* Span the first column (75%) */
+    background-color: var(--primarybg-color);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Add spacing below the widget */
+}
+
+#widget-container-4 {
+    grid-column: 2 / 3; /* Span the second column (25%) */
+}
+
+/* Main Content */
+.main-content {
+    grid-area: main;
+    background-color: var(--primarybg-color);
+    padding: 20px;
+    border-radius: 10px;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    grid-area: header;
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.header p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: var(--text-color);
+}
+
+/* Tools Container */
+.tools-container {
+    display: grid;
+    grid-template-rows: auto 1fr; /* Two rows: widgets and tools */
+    gap: 20px; /* Adjust the gap between rows */
+}
+
+/* First child (widget) spans full width */
+.tools-container > .widget:first-child {
+    grid-column: 1 / -1; /* Span all columns */
+}
+
+/* Ensure To-Do List and Pomodoro Timer take equal width */
+.tools-container > .card {
+    width: 100%; /* Take up full width of their grid cell */
+}
+
+/* Widgets Row */
+.widgets-row {
+    display: grid;
+    grid-template-columns: 75% 25%; /* 75% for full-width, 25% for the new widget */
+    grid-auto-rows: 1fr; /* Ensure both widgets have the same height */
+    gap: 20px; /* Adjust the gap between widgets */
+    height: 100%; /* Ensure the row takes up the full height */
+}
+
+.tools-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 50% for To-Do List, 50% for Pomodoro Timer */
+    gap: 20px; /* Adjust the gap between tools */
 }
 
 .card {
     background-color: var(--secondarybg-color);
     border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.card:nth-child(1) {
-    grid-area: c1;
-}
-
-.card:nth-child(2) {
-    grid-area: c2;
-}
-
-.card:nth-child(3) {
-    grid-area: c3;
-}
-
-.card:nth-child(4) {
-    grid-area: c4;
-}
-
-.card:nth-child(5) {
-    grid-area: c5;
-}
-
-.card:nth-child(6) {
-    grid-area: c6;
-}
-
-@media (max-width: 925px) {
-    .main {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(6,200px);
-        grid-template-areas: initial;
-    }
-
-    .card {
-        grid-area: initial !important;
-    }
-}
-
-/*End Page Layout*/
-
-/*to do list*/
+/* To-Do List - Modern Minimalist */
 .todo-app {
     width: 100%;
     max-width: 540px;
     background-color: var(--primarybg-color);
-    margin: 40px auto 20px;
-    padding: 20px 30px 70px;
+    margin: 0 auto;
+    padding: 20px;
     border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .todo-app h2 {
+    font-size: 1.6em; /* Match the Pomodoro Timer title size */
+    margin: 0 0 20px 0; /* Consistent margin below the title */
+    font-weight: 600; /* Same weight as Pomodoro Timer */
     color: var(--text-color);
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    gap: 10px; /* Space between icon and text */
 }
 
 .todo-app h2 img {
     width: 30px;
     margin-left: 10px;
-    background-color: var(--text-color);
 }
 
 .row {
@@ -141,8 +186,8 @@ h1 {
     justify-content: space-between;
     background-color: var(--secondarybg-color);
     border-radius: 30px;
-    padding-left: 20px;
-    margin-bottom: 25px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
 }
 
 .todo-input {
@@ -151,45 +196,66 @@ h1 {
     outline: none;
     background: transparent;
     padding: 10px;
-    font-weight: 14px;
+    font-size: 14px;
+    color: var(--text-color);
 }
 
 .todo-button {
     border: none;
     outline: none;
-    padding: 16px 50px;
+    padding: 12px 30px;
     color: var(--primarybg-color);
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
-    border-radius: 40px;
+    border-radius: 30px;
     background-color: var(--buttons-color);
+    transition: background-color 0.3s ease;
+}
+
+.todo-button:hover {
+    background-color: var(--effects-color);
+}
+
+#list-c2 {
+    padding: 0;
+    margin: 0;
 }
 
 #list-c2 li {
     list-style: none;
-    font-size: 17px;
-    padding: 17px 8px 12px 50px;
+    font-size: 16px;
+    padding: 12px 8px 12px 50px;
     user-select: none;
     cursor: pointer;
     position: relative;
+    background-color: var(--secondarybg-color);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#list-c2 li:hover {
+    background-color: #e0e0e0; /* Slightly lighter gray for hover */
 }
 
 #list-c2 li::before {
     content: '';
     position: absolute;
-    height: 28px;
-    width: 28px;
+    height: 24px;
+    width: 24px;
     border-radius: 50%;
-    background-image:url(../Img/unchecked.png);
+    background-image: url(../Img/unchecked.png);
     background-size: cover;
     background-position: center;
-    top: 12px;
-    left: 8px;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
 }
 
 #list-c2 li.checked {
     color: var(--text-color);
     text-decoration: line-through;
+    opacity: 0.7; /* Slightly fade checked items */
 }
 
 #list-c2 li.checked::before {
@@ -198,50 +264,52 @@ h1 {
 
 #list-c2 li span {
     position: absolute;
-    right: 0;
-    top: 5px;
-    width: 40px;
-    height: 40px;
-    font-size: 22px;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
     color: var(--text-color);
-    line-height: 40px;
+    line-height: 30px;
     text-align: center;
     border-radius: 50%;
+    transition: background-color 0.3s ease;
 }
 
 #list-c2 li span:hover {
-    background: var(--secondarybg-color);
+    background-color: rgba(0, 0, 0, 0.1); /* Subtle hover effect */
 }
-
-/*Pomodoro timer*/
+/* Pomodoro Timer - Simplified Minimalist */
 .pomo-container {
-    margin: 50px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2em;
+    gap: 1em; /* Reduced gap for a tighter layout */
     color: var(--text-color);
     background-color: var(--primarybg-color);
-    border-radius: 2em;
-    padding: 4em 3em;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Softer shadow */
 }
 
 .pomo-title {
-    font-size: 2.5em;
-}
-
-hr {
-    width: 100%;
-    background-color: var(--buttons-color);
-    height: 5px;
-    border-radius: 1em ;
-    border: none;
+    font-size: 1.6em; /* Slightly larger for emphasis */
+    margin: 0 0 10px 0; /* Add a small margin below the title */
+    font-weight: 600; /* Consistent with the To-Do List title */
+    color: var(--text-color);
+    text-align: center; /* Center-align for symmetry */
+    letter-spacing: -0.5px; /* Slightly tighter letter spacing */
 }
 
 .timer {
-    font-size: 6em;
-    font-weight: 700;
+    font-size: 3em;
+    font-weight: 600; /* Slightly lighter weight for the timer */
+    margin: 0;
+    color: var(--text-color);
+    letter-spacing: -1px; /* Tighter letter spacing for a modern look */
 }
 
 .pomo-button-wrapper {
@@ -250,23 +318,26 @@ hr {
 }
 
 .pomo-button {
-    font-size: 1.2em;
-    font-weight: 800;
-    letter-spacing: 1px;
-    padding: 0.5em 1.5em;
+    font-size: 0.9em;
+    font-weight: 500;
+    padding: 8px 16px;
     border: none;
-    border-radius: 0.5em;
-    color: var(--effects-color);
+    border-radius: 4px;
+    color: var(--primarybg-color);
     background-color: var(--buttons-color);
     cursor: pointer;
-    transition: 0.2s ease-in-out;
+    transition: background-color 0.2s ease;
 }
 
 .pomo-button:hover {
-    transform: translateY(-10px);
     background-color: var(--effects-color);
 }
 
-#start,#stop,#reset {
-    color: var(--primarybg-color);
+/* Remove the horizontal line (hr) for a cleaner look */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tools-container {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
 }

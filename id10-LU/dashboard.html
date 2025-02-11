@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,18 +8,11 @@
     <link rel="stylesheet" href="css/navbar.css">
     <title>Dashboard Page</title>
 
-     <!-- ICONS -->
-     <script src="https://kit.fontawesome.com/6f3103b13c.js" crossorigin="anonymous"></script>
-
+    <!-- ICONS -->
+    <script src="https://kit.fontawesome.com/6f3103b13c.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <h1>Welcome, <span id="student-name">Ali Abdallah</span>!</h1>
-            <p>Major: <span id="student-major">Computer Science</span> | Semester: <span id="student-semester">1</span></p>
-        </div>
-    </header>
-    <hr>
+    <!-- Navbar -->
     <nav id="navbar">
         <ul>
             <li>
@@ -55,7 +46,7 @@
             </li>
             <li>
                 <a href="notes.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-240h80v-120h120v-80H520v-120h-80v120H320v80h120v120ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>
                     <span>Notes</span>
                 </a>
             </li>
@@ -73,55 +64,70 @@
             </li>
         </ul>
     </nav>
-    
-    <div class="widget-container">
-        <!-- Each widget will have its own container -->
-        <div class="widget" id="widget-container-1"></div>
-        <div class="widget" id="widget-container-2"></div>
-        <div class="widget" id="widget-container-3"></div>
-        <!-- Add more widget containers as needed -->
-    </div>
-    <main class="main">
-        <div class="card"></div>
-        <div class="card" id="c2">
-            <div class="todo-app">
-                <h2>To-Do List <img src="Img/checklist_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png"></h2>
-                <div class="row">
-                    <input type="text" id="input-box" placeholder="Add your text" class="todo-input">
-                    <button id="add-task-btn" class="todo-button">Add</button>
-                </div>
-                <ul id="list-c2">
-                    <!--<li class="checked">task 1</li>
-                    <li>task 1</li>
-                    <li>task 1</li> -->
-                </ul>
-            </div>
-        </div>
-        <div class="card"></div>
-        <div class="card" id="c4">
-            <div class="pomo-container">
 
-                <h1 class="pomo-title">Pomodoro Timer</h1>
+    <!-- Widgets Section -->
+    <aside class="widgets-section">
+        <div class="widget-container">
+            <h2 class="widgets-heading">Widgets</h2>
+            <div class="widget" id="widget-container-2"></div>
+            <div class="widget" id="widget-container-3"></div>
+
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="header">
+            <div class="header-content">
+                <h1>Welcome, <span id="student-name">Ali Abdallah</span>!</h1>
+                <p>Major: <span id="student-major">Computer Science</span> | Semester: <span id="student-semester">3</span></p>
+            </div>
+        </header>
+        <hr>
+        <div class="tools-container">
+            <!-- Widgets Row -->
+            <div class="widgets-row">
+                <div class="widget full-width-widget" id="widget-container-1"></div>
+                <div class="widget" id="widget-container-4"></div>
+            </div>
         
-                <hr>
-                <p class="timer" id="timer">25:00</p>
-                <div class="pomo-button-wrapper">
-                    <button class="pomo-button" id="start">Start</button>
-                    <button class="pomo-button" id="stop">Stop</button>
-                    <button class="pomo-button" id="reset">Reset</button>
+            <!-- Tools Row -->
+            <div class="tools-row">
+                <!-- To-Do List -->
+                <div class="card" id="c2">
+                    <div class="todo-app">
+                        <h2>To-Do List <img src="Img/checklist_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png"></h2>
+                        <div class="row">
+                            <input type="text" id="input-box" placeholder="Add your text" class="todo-input">
+                            <button id="add-task-btn" class="todo-button">Add</button>
+                        </div>
+                        <ul id="list-c2"></ul>
+                    </div>
+                </div>
+        
+                <!-- Pomodoro Timer -->
+                <div class="card" id="c4">
+                    <div class="pomo-container">
+                        <h1 class="pomo-title">Pomodoro Timer</h1>
+                        <hr>
+                        <p class="timer" id="timer">25:00</p>
+                        <div class="pomo-button-wrapper">
+                            <button class="pomo-button" id="start">Start</button>
+                            <button class="pomo-button" id="stop">Stop</button>
+                            <button class="pomo-button" id="reset">Reset</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <div class="card"></div>
-        <div class="card"></div>
     </main>
 
     <div id="particles-js"></div>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script> <!-- CDN for particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
     <script src="js/particles.js"></script>
     <script src="js/navbar.js"></script>
     <script src="js/main.js"></script>
     <script src="js/dashboard.js"></script>
+
 </body>
 </html>

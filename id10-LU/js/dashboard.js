@@ -1,16 +1,31 @@
-/*const toggleBtn = document.getElementById('toggle-btn')
-const navbar = document.getElementById('navbar')
+//widgets
+document.addEventListener("DOMContentLoaded", function () {
+    const widgetUrls = [
+        "https://indify.co/widgets/live/countdown/K2otRMAfg7RlO9QqDUTi", //semester countdown
+        "https://indify.co/widgets/live/clock/D03Hq9zawuwqFyNH8Fr5",//clock
+        "https://indify.co/widgets/live/counter/ZMIpFXHvZAKBxPWpNOoY", //counter
+        "https://indify.co/widgets/live/button/yyA07kT0p2iBScnJBKUU" //buttons
+    ];
 
-function toggleSideBar(){
-    navbar.classList.toggle('close')
-    toggleBtn.classList.toggle('rotate')
-}
+    widgetUrls.forEach((url, index) => {
+        let widgetContainer = document.getElementById(`widget-container-${index + 1}`);
+        let loadingMessage = document.createElement("p");
+        loadingMessage.textContent = "Loading...";
+        widgetContainer.appendChild(loadingMessage);
 
-document.getElementById('toggle-btn').addEventListener('click', function() {
-    var navbar = document.getElementById('navbar');
-    navbar.classList.toggle('open');
+        let iframe = document.createElement("iframe");
+        iframe.src = url;
+        iframe.width = "100%";
+        iframe.height = "100%";
+        iframe.style.border = "none";
+        widgetContainer.appendChild(iframe);
+
+        iframe.onload = function() {
+            loadingMessage.style.display = "none";
+        };
+    });
 });
-*/
+
 
 /*TODO List*/
 
