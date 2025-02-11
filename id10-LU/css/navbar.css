@@ -50,11 +50,7 @@
 }
 
 #navbar ul li.active a {
-    color: var(--effects-color);
-
-    svg{
-        fill: var(--effects-color);
-    }
+    background-color: var(--effects-color);
 }
 
 #navbar a, #navbar .dropdown-btn, #navbar .logo {
