@@ -14,6 +14,9 @@
         <ul>
             <li>
                 <span class="logo">Oravuim</span>
+                <button onclick="toggleNavBar()" id="toggle-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-240 200-480l240-240 56 56-183 184 183 184-56 56Zm264 0L464-480l240-240 56 56-183 184 183 184-56 56Z"/></svg>
+                </button>
             </li>
             <li>
                 <a href="dashboard.html">
@@ -22,10 +25,17 @@
                 </a>
             </li>
             <li>
-                <a href="resources.html">
+                <button onclick="toggleSubMenu(this)" class="dropdown-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h480q33 0 56.5 23.5T800-800v640q0 33-23.5 56.5T720-80H240Zm0-80h480v-640h-80v280l-100-60-100 60v-280H240v640Zm0 0v-640 640Zm200-360 100-60 100 60-100-60-100 60Z"/></svg>
                     <span>Courses</span>
-                </a>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-360 280-560h400L480-360Z"/></svg>
+                </button>
+                <ul class="sub-menu">
+                    <div>
+                        <li><a href="#">Your Semester</a></li>
+                        <li><a href="resources.html">Explore</a></li>
+                    </div>
+                </ul>
             </li>
             <li>
                 <button onclick="toggleSubMenu(this)" class="dropdown-btn">

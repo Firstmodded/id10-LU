@@ -1,3 +1,11 @@
+:root {
+    --primarybg-color: #ffffff;
+    --secondarybg-color: #f0f0f0;
+    --text-color: #353535;
+    --buttons-color: #284b63;
+    --effects-color: #3c6e71;
+}
+
 
 #navbar {
     background-color: var(--text-color);
@@ -6,20 +14,20 @@
     box-sizing: border-box;
     height: 100vh;
     width: 250px;
-    padding: 20px;
+    padding: 5px 1em;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     position: fixed;
     top: 0;
     align-self: self-start;
     transition: 300ms ease-in-out;
     overflow: hidden;
-    white-space: nowrap;
+    text-wrap: nowrap;
     z-index: 10;
 }
 
 #navbar.close {
-    padding: 10px;
-    width: 80px;
+    padding: 5px;
+    width: 60px;
 }
 
 #navbar ul {
@@ -35,14 +43,18 @@
     display: flex;
     justify-content: flex-end;
     margin-bottom: 16px;
-    margin-right: 60px;
-    font-size: 2em;
+    .logo {
+        font-weight: 500;
+        font-size: 30px;
+    }
 }
 
 #navbar ul li.active a {
-    color: var(--primarybg-color);
-    background-color: rgba(255, 255, 255, 0.1); 
-    border-radius: 8px;
+    color: var(--effects-color);
+
+    svg{
+        fill: var(--effects-color);
+    }
 }
 
 #navbar a, #navbar .dropdown-btn, #navbar .logo {
@@ -52,7 +64,7 @@
     color: var(--primarybg-color);
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 1.2em;
     transition: all 0.3s ease;
 }
 
@@ -159,6 +171,23 @@
 }
 
 .submenu li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#toggle-btn {
+    margin-left: auto;
+    padding: 1em;
+    border: none;
+    border-radius: .5em;
+    background: none;
+    cursor: pointer;
+
+    svg {
+        transition: rotate 150ms ease;
+    }
+}
+
+#toggle-btn:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
