@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORAVIUM - Student Tools</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">ORAVIUM</div>
+        <ul class="nav-links">
+            <li><a href="#info">INFO</a></li>
+            <li><a href="#tools">TOOLS</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+        <a href="login.html" class="signup-button">Sign Up</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your All-in-One Student Toolkit</h1>
+            <p>Access tools like Grade Calculators, Pomodoro Timers, and resources to boost your academic success.</p>
+            <a href="#tools" class="cta-button">Explore Tools</a>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section id="info" class="info-section">
+        <h2>About This Project</h2>
+        <p>This platform is designed to help students manage their academic workload efficiently. From calculating grades to managing study time, we've got you covered.</p>
+        <div id="particles-js"></div>
+    </section>
+
+    <!-- Featured Tools Section -->
+    <section id="tools" class="tools-section">
+        <h2>Featured Tools</h2>
+        <!-- Dashboard Card -->
+        <div class="dashboard-card">
+            <h3>📊 Dashboard</h3>
+            <div class="widgets-grid">
+                <!-- Clock Widget -->
+                <div class="widget">
+                    <h4>🕒 Live Clock</h4>
+                    <p id="clock">Loading...</p>
+                </div>
+                <!-- Streak Counter -->
+                <div class="widget">
+                    <h4>🔥 Study Streak</h4>
+                    <p id="streak-counter">0 Days</p>
+                </div>
+                <!-- Quick Links -->
+                <div class="widget">
+                    <h4>🔗 Quick Links</h4>
+                    <a href="#" class="quick-link">Youtube</a>
+                    <a href="#" class="quick-link">Chatgpt</a>
+                </div>
+                <!-- Semester Countdown -->
+                <div class="widget">
+                    <h4>📅 Semester Countdown</h4>
+                    <p id="countdown">Loading...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Other Tools -->
+        <div class="tool-cards">
+            <div class="card">
+                <h3>Grade Calculator</h3>
+                <p>Calculate grades for every year.</p>
+            </div>
+            <div class="card">
+                <h3>Pomodoro Timer</h3>
+                <p>Stay focused with timed sessions.</p>
+            </div>
+            <div class="card">
+                <h3>Courses & Resources</h3>
+                <p>Access the materials of your current semester or explore what's coming next.</p>
+            </div>
+        </div>
+        <div id="particles-js-2"></div>
+    </section>
+
+    <!-- Footer with Contact Form & Contributors -->
+    <footer id="contact" class="footer">
+        <div class="footer-columns">
+            <!-- Contact Form -->
+            <div class="footer-form">
+                <h3>Contact Us</h3>
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea placeholder="Message" rows="4" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+
+            <!-- Contributors Section -->
+            <div class="contributors">
+                <h3>Contributors</h3>
+                <div class="contributor">
+                    <h4>Abdallah Smile</h4>
+                    <p>LU Student | Computer Science</p>
+                    <p>Passionate about building AI tools.</p>
+                </div>
+                <div class="contributor">
+                    <h4>Ali Msheimesh</h4>
+                    <p>LU Student | Computer Science</p>
+                    <p>Dedicated to creating impactful solutions for AI-related problems</p>
+                </div>
+                <p class="collab-note">This is our first collaboration. We noticed a lack of tools for LU students and decided to build ORAVIUM to fill that gap.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <script src="js/particles.js"></script>
+    <script>
+        // Clock
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').textContent = now.toLocaleTimeString();
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Semester Countdown (Example: Dec 31, 2023)
+        const endDate = new Date('2025-10-31T23:59:59');
+        function updateCountdown() {
+            const now = new Date();
+            const diff = endDate - now;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById('countdown').textContent = `${days} Days Left`;
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
