@@ -1,12 +1,11 @@
 :root {
-     --primarybg-color:#ffffff;
-     --secondarybg-color:#d9d9d9;
-     --text-color:#353535;
-     --buttons-color:#284b63;
-     --effects-color:#3c6e71;
+    --primarybg-color:#ffffff;
+    --secondarybg-color:#d9d9d9;
+    --text-color:#353535;
+    --buttons-color:#284b63;
+    --effects-color:#3c6e71;
 }
 
-/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -14,16 +13,11 @@
     font-family: 'Times New Roman', Times, serif;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-/* Particles Background */
 #particles-js {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh; /* Make sure it covers the full screen */
-    z-index: -1; /* Make sure particles appear behind other content */
+    height: 100vh;
+    z-index: -1;
 }

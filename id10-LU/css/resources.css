@@ -1,6 +1,6 @@
 body {
     display: grid;
-    grid-template-columns: 250px auto; /* Sidebar takes 250px, main content gets remaining space */
+    grid-template-columns: 250px auto; /* Sidebar and main content layout */
     grid-template-rows: 60px 1fr;
     grid-template-areas:
         "side header"
@@ -13,14 +13,15 @@ h1 {
     text-align: center;
 }
 
+/* Main content area */
 .main-content {
     grid-area: main;
     padding: 25px;
     width: 100%;
-    overflow-x: hidden; /* Prevent content from being squeezed */
+    overflow-x: hidden;
 }
 
-/* Search and Filter Area */
+/* Search and filter section */
 .search-filter-container {
     display: flex;
     justify-content: space-between;
@@ -39,12 +40,14 @@ h1 {
     margin-right: 20px;
 }
 
-/*navbar edit for scrolling*/
+/* Fixed navbar */
 #navbar {
     position: fixed;
+    width: 100%;
+    z-index: 1000;
 }
 
-/* Course List Styling */
+/* Course list layout */
 section {
     margin-bottom: 40px;
 }
@@ -56,6 +59,7 @@ section h2 {
     text-align: left;
 }
 
+/* Course container */
 .courses-container {
     display: flex;
     flex-wrap: wrap;
@@ -63,7 +67,7 @@ section h2 {
     justify-content: flex-start;
 }
 
-/* Course Item Styles */
+/* Individual course item */
 .course-item {
     background-color: #eef1f4;
     padding: 15px;
@@ -75,58 +79,44 @@ section h2 {
     transition: transform 0.3s ease-in-out;
 }
 
-.course-item a:hover {
-    color: #333; 
-    text-decoration: underline; /* Optional: Add back underline on hover */
-}
-
-.course-item a {
-    color: inherit; /* Inherit text color from parent */
-    text-decoration: none; /* Remove underline */
-    font-weight: bold; /* Optional: Make it bold for better visibility */
-}
-
-/* Remove default link styles */
-.course-link {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-/* Hover effect on the course item (box) */
+/* Course item hover effects */
 .course-item:hover {
     transform: scale(1.05);
     background-color: #dbe3e8;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow without blur */
-    filter: none; /* Ensure no blur effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Hover effect for the course link (title) */
-.course-link:hover {
-    color: #007bff;
-    transform: scale(1.05);
+/* Course title and links */
+.course-item a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-/* Course Title Styling */
+.course-item a:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
+/* Course title styling */
 .course-title {
     font-weight: bold;
     color: #333;
     margin-bottom: 5px;
 }
 
-/* Course Info Styling */
+/* Course info styling */
 .course-info {
     font-style: italic;
     color: #777;
 }
 
-/* Hide search and sort filters when in course view */
+/* Hide search and filter section in course view */
 body.course-view .search-filter-container {
     display: none;
 }
 
-/* Go Back Button Styling */
+/* Go back button */
 .go-back-button {
     background-color: #007bff;
     color: white;

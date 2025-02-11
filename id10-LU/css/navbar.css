@@ -1,13 +1,13 @@
-/* Navbar Styles - Modern Minimalist */
+
 #navbar {
-    background-color: var(--text-color); /* Solid background for minimalism */
+    background-color: var(--text-color);
     grid-area: side;
     color: var(--primarybg-color);
     box-sizing: border-box;
     height: 100vh;
     width: 250px;
     padding: 20px;
-    border-right: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
     position: fixed;
     top: 0;
     align-self: self-start;
@@ -23,12 +23,12 @@
 }
 
 #navbar ul {
-    list-style: none; /* Remove bullets from the ul */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
     display: flex;
     flex-direction: column;
-    height: 100%; /* Ensure the ul takes up the full height of the navbar */
+    height: 100%; 
 }
 
 #navbar > ul > li:first-child {
@@ -41,7 +41,7 @@
 
 #navbar ul li.active a {
     color: var(--primarybg-color);
-    background-color: rgba(255, 255, 255, 0.1); /* Active state background */
+    background-color: rgba(255, 255, 255, 0.1); 
     border-radius: 8px;
 }
 
@@ -57,7 +57,7 @@
 }
 
 #navbar a:hover, #navbar .dropdown-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+    background-color: rgba(255, 255, 255, 0.1); 
 }
 
 #navbar svg {
@@ -76,7 +76,7 @@
 #navbar ul li:last-child {
     margin-top: auto;
 }
-/* Dropdown Button */
+
 .dropdown-btn {
     width: 100%;
     text-align: left;
@@ -94,10 +94,10 @@
 }
 
 .rotate svg:last-child {
-    transform: rotate(180deg); /* Rotate arrow on open */
+    transform: rotate(180deg);
 }
 
-/* Submenu */
+
 #navbar .sub-menu {
     display: grid;
     grid-template-rows: 0fr;
@@ -116,17 +116,16 @@
 #navbar .sub-menu a {
     padding: 10px 20px;
     color: var(--primarybg-color);
-    background-color: rgba(255, 255, 255, 0.05); /* Subtle submenu background */
+    background-color: rgba(255, 255, 255, 0.05); 
     border-radius: 8px;
     margin: 5px 0;
     transition: background-color 0.3s ease;
 }
 
 #navbar .sub-menu a:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Hover effect for submenu items */
+    background-color: rgba(255, 255, 255, 0.1); 
 }
 
-/* Submenu for Has-Submenu Items */
 #navbar li.has-submenu {
     position: relative;
 }
@@ -136,7 +135,7 @@
     position: absolute;
     top: 0;
     left: 100%;
-    width: 200px; /* Fixed width for submenu */
+    width: 200px;
     background-color: var(--text-color);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -163,7 +162,6 @@
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Minimalist Scrollbar */
 #navbar::-webkit-scrollbar {
     width: 6px;
 }

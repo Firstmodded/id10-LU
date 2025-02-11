@@ -1,4 +1,4 @@
-
+/* CSS for a split-screen login page with image and form sections. Includes responsive design for mobile. */
 :root {
     --primarybg-color:#ffffff;
     --secondarybg-color:#d9d9d9;
@@ -7,27 +7,26 @@
     --effects-color:#3c6e71;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-section{
+section {
     position: relative;
     width: 100%;
     height: 100%;
     display: flex;
 }
 
-/*Image box*/
-section .imgBox{
+section .imgBox {
     position: relative;
     width: 50%;
     height: 100%;
 }
 
-section .imgBox::before{
+section .imgBox::before {
     content: '';
     position: absolute;
     top: 0;
@@ -39,7 +38,7 @@ section .imgBox::before{
     mix-blend-mode: screen;
 }
 
-section .imgBox img{
+section .imgBox img {
     position: relative;
     top: 0;
     left: 0;
@@ -48,8 +47,7 @@ section .imgBox img{
     object-fit: cover;
 }
 
-/*Content Box*/
-section .contentBox{
+section .contentBox {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,11 +55,11 @@ section .contentBox{
     height: 100vh;
 }
 
-section .contentBox .formBox{
+section .contentBox .formBox {
     width: 50%;
 }
 
-section .contentBox .formBox h2{
+section .contentBox .formBox h2 {
     color: var(--text-color);
     font-weight: 600;
     font-size: 1.5em;
@@ -72,11 +70,11 @@ section .contentBox .formBox h2{
     letter-spacing: 1px;
 }
 
-section .contentBox .formBox .inputBox{
+section .contentBox .formBox .inputBox {
     margin-bottom: 20px;
 }
 
-section .contentBox .formBox .inputBox span{
+section .contentBox .formBox .inputBox span {
     font-size: 16px;
     margin-bottom: 5px;
     display: inline-block;
@@ -86,7 +84,7 @@ section .contentBox .formBox .inputBox span{
     letter-spacing: 1px;
 }
 
-section .contentBox .formBox .inputBox input{
+section .contentBox .formBox .inputBox input {
     width: 100%;
     padding: 10px 20px;
     outline: none;
@@ -96,10 +94,10 @@ section .contentBox .formBox .inputBox input{
     letter-spacing: 1px;
     color: #333333;
     background: transparent;
-    border-radius:30px ;
+    border-radius:30px;
 }
 
-section .contentBox .formBox .inputBox input[type="submit"]{
+section .contentBox .formBox .inputBox input[type="submit"] {
     background: var(--buttons-color);
     color: #fff;
     outline: none;
@@ -107,39 +105,39 @@ section .contentBox .formBox .inputBox input[type="submit"]{
     cursor: pointer;
 }
 
-section .contentBox .formBox .inputBox input[type="submit"]:hover{
+section .contentBox .formBox .inputBox input[type="submit"]:hover {
     background: var(--effects-color);
 }
 
-section .contentBox .formBox .remember{
+section .contentBox .formBox .remember {
     margin-bottom: 10px;
     color: var(--text-color);
     font-weight: 400;
     font-size: 14px;
 }
 
-section .contentBox .formBox .inputBox p{
+section .contentBox .formBox .inputBox p {
     color: var(--text-color);
 }
 
-section .contentBox .formBox .inputBox p a{
+section .contentBox .formBox .inputBox p a {
     color: var(--buttons-color);
 }
 
-section .contentBox .formBox h3{
+section .contentBox .formBox h3 {
     color: var(--text-color);
     text-align: center;
     margin: 80px 0 10px;
     font-weight: 500;
 }
 
-section .contentBox .formBox .socials{
+section .contentBox .formBox .socials {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-section .contentBox .formBox .socials li{
+section .contentBox .formBox .socials li {
     list-style: none;
     width: 50px;
     height: 50px;
@@ -152,17 +150,17 @@ section .contentBox .formBox .socials li{
     cursor: pointer;
 }
 
-section .contentBox .formBox .socials li:hover{
+section .contentBox .formBox .socials li:hover {
     background-color: var(--effects-color);
 }
 
-section .contentBox .formBox .socials li svg{
+section .contentBox .formBox .socials li svg {
     transform: scale(0.5);
     filter: invert(1);
 }
 
-@media (max-width: 768px){
-    section .imgBox{
+@media (max-width: 768px) {
+    section .imgBox {
         position: absolute;
         top: 0;
         left: 0;
@@ -170,7 +168,7 @@ section .contentBox .formBox .socials li svg{
         height: 100%;
     }
 
-    section .contentBox{
+    section .contentBox {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -179,24 +177,17 @@ section .contentBox .formBox .socials li svg{
         z-index: 1;
     }
 
-    section .contentBox .formBox{
+    section .contentBox .formBox {
         width: 100%;
         padding: 40px;
-        background: rgb(225, 225, 225 / 0.5) ;
+        background: rgb(225, 225, 225 / 0.5);
         margin: 50px;
     }
 
-    section .contentBox .formBox h3{
+    section .contentBox .formBox h3 {
         color: #333333;
         text-align: center;
         margin: 30px 0 10px;
         font-weight: 500;
     }
 }
-
-
-
-
-
-
-
