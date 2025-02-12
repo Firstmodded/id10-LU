@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORAVIUM - Student Tools</title>
     <link rel="stylesheet" href="css/home.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -18,71 +19,75 @@
         <a href="login.html" class="signup-button">Sign Up</a>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Your All-in-One Student Toolkit</h1>
-            <p>Access tools like Grade Calculators, Pomodoro Timers, and resources to boost your academic success.</p>
-            <a href="#tools" class="cta-button">Explore Tools</a>
-        </div>
-    </section>
+    <div data-aos="fade-up">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Your All-in-One Student Toolkit</h1>
+                <p>Access tools like Grade Calculators, Pomodoro Timers, and resources to boost your academic success.</p>
+                <a href="#tools" class="cta-button">Explore Tools</a>
+            </div>
+        </section>
 
-    <!-- Info Section -->
-    <section id="info" class="info-section">
-        <h2>About This Project</h2>
-        <p>This platform is designed to help students manage their academic workload efficiently. From calculating grades to managing study time, we've got you covered.</p>
-        <div id="particles-js"></div>
-    </section>
+
+        <!-- Info Section -->
+        <section id="info" class="info-section">
+            <h2>About This Project</h2>
+            <p>This platform is designed to help students manage their academic workload efficiently. From calculating grades to managing study time, we've got you covered.</p>
+            
+            <div id="particles-js"></div>
+        </section>
+    </div>
 
     <!-- Featured Tools Section -->
-    <section id="tools" class="tools-section">
-        <h2>Featured Tools</h2>
-        <!-- Dashboard Card -->
-        <div class="dashboard-card">
-            <h3>📊 Dashboard</h3>
-            <div class="widgets-grid">
-                <!-- Clock Widget -->
-                <div class="widget">
-                    <h4>🕒 Live Clock</h4>
-                    <p id="clock">Loading...</p>
-                </div>
-                <!-- Streak Counter -->
-                <div class="widget">
-                    <h4>🔥 Study Streak</h4>
-                    <p id="streak-counter">0 Days</p>
-                </div>
-                <!-- Quick Links -->
-                <div class="widget">
-                    <h4>🔗 Quick Links</h4>
-                    <a href="https://www.youtube.com" class="quick-link">Youtube</a>
-                    <a href="https://chatgpt.com/" class="quick-link">Chatgpt</a>
-                </div>
-                <!-- Semester Countdown -->
-                <div class="widget">
-                    <h4>📅 Semester Countdown</h4>
-                    <p id="countdown">Loading...</p>
+    <div data-aos="fade-down" data-aos-delay="200">
+        <section id="tools" class="tools-section">
+            <h2>Featured Tools</h2>
+            <!-- Dashboard Card -->
+            <div class="dashboard-card">
+                <h3>📊 Dashboard</h3>
+                <div class="widgets-grid">
+                    <!-- Clock Widget -->
+                    <div class="widget">
+                        <h4>🕒 Live Clock</h4>
+                        <p id="clock">Loading...</p>
+                    </div>
+                    <!-- Streak Counter -->
+                    <div class="widget">
+                        <h4>🔥 Study Streak</h4>
+                        <p id="streak-counter">0 Days</p>
+                    </div>
+                    <!-- Quick Links -->
+                    <div class="widget">
+                        <h4>🔗 Quick Links</h4>
+                        <a href="https://www.youtube.com" class="quick-link">Youtube</a>
+                        <a href="https://chatgpt.com/" class="quick-link">Chatgpt</a>
+                    </div>
+                    <!-- Semester Countdown -->
+                    <div class="widget">
+                        <h4>📅 Semester Countdown</h4>
+                        <p id="countdown">Loading...</p>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Other Tools -->
-        <div class="tool-cards">
-            <div class="card">
-                <h3>Grade Calculator</h3>
-                <p>Calculate grades for every year.</p>
+            <!-- Other Tools -->
+            <div class="tool-cards">
+                <div class="card">
+                    <h3>Grade Calculator</h3>
+                    <p>Calculate grades for every year.</p>
+                </div>
+                <div class="card">
+                    <h3>Pomodoro Timer</h3>
+                    <p>Stay focused with timed sessions.</p>
+                </div>
+                <div class="card">
+                    <h3>Courses & Resources</h3>
+                    <p>Access the materials of your current semester or explore what's coming next.</p>
+                </div>
             </div>
-            <div class="card">
-                <h3>Pomodoro Timer</h3>
-                <p>Stay focused with timed sessions.</p>
-            </div>
-            <div class="card">
-                <h3>Courses & Resources</h3>
-                <p>Access the materials of your current semester or explore what's coming next.</p>
-            </div>
-        </div>
-        <div id="particles-js-2"></div>
-    </section>
-
+            <div id="particles-js-2"></div>
+        </section>
+    </div>
     <!-- Footer with Contact Form & Contributors -->
     <footer id="contact" class="footer">
         <div class="footer-columns">
@@ -113,10 +118,40 @@
                 <p class="collab-note">This is our first collaboration. We noticed a lack of tools for LU students and decided to build ORAVIUM to fill that gap.</p>
             </div>
         </div>
+
+                <!-- Social Media & Copyright -->
+        <div class="footer-bottom">
+            <div class="social-media">
+                <a href="https://twitter.com/yourpage" target="_blank">🐦 Twitter</a>
+                <a href="https://www.linkedin.com/in/yourprofile" target="_blank">💼 LinkedIn</a>
+                <a href="https://github.com/yourrepo" target="_blank">👨‍💻 GitHub</a>
+            </div>
+            
+            <div class="quick-links">
+                <a href="#info">About</a>
+                <a href="#tools">Tools</a>
+                <a href="#contact">Contact</a>
+            </div>
+            
+            <p class="copyright">© 2024 ORAVIUM. All rights reserved.</p>
+        </div>
+
     </footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
     <script src="js/particles.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+          offset: 200,        // Offset (in px) from the original trigger point
+          duration: 1000,     // Duration of animation (in ms)
+          easing: 'ease',     // Easing type
+          delay: 100,         // Delay (in ms)
+          once: false,        // Whether animation should happen only once
+          mirror: false,      // Whether elements should animate out while scrolling past them
+        });
+      </script>
     <script>
         // Clock
         function updateClock() {
