@@ -85,6 +85,10 @@
     margin-top: auto;
 }
 
+#navbar ul li:last-child svg {
+    rotate: 180deg;
+}
+
 .dropdown-btn {
     width: 100%;
     text-align: left;
