@@ -32,6 +32,8 @@ const courses = [
     { course: "I2204", name: "Imperative Programming", semester: "sem3", year: 2, professor: "Dr. P", credits: 3 },
     { course: "I2205", name: "Graphs", semester: "sem3", year: 2, professor: "Dr. Q", credits: 3 },
     { course: "S2250", name: "Statistics", semester: "sem3", year: 2, professor: "Dr. R", credits: 3 },
+    { course: "M2251", name: "Arithmetics in Z", semester: "sem3", year: 2, professor: "Dr. M", credits: 3 },
+    { course: "I2231", name: "Operational Research", semester: "sem3", year: 2, professor: "Dr. R", credits: 3 },
 
     // Semester 4
     { course: "I2206", name: "Data Structures", semester: "sem4", year: 2, professor: "Dr. S", credits: 3 },
@@ -39,6 +41,7 @@ const courses = [
     { course: "I2208", name: "Network 1", semester: "sem4", year: 2, professor: "Dr. U", credits: 3 },
     { course: "I2209", name: "Logical Programming", semester: "sem4", year: 2, professor: "Dr. V", credits: 3 },
     { course: "I2210", name: "Database 1", semester: "sem4", year: 2, professor: "Dr. W", credits: 3 },
+    { course: "I2211", name: "Object Oriented Programming", semester: "sem4", year: 2, professor: "Dr. W", credits: 3 },
 
     // Semester 5
     { course: "DHR300", name: "Human Rights", semester: "sem5", year: 3, professor: "Dr. X", credits: 3 },

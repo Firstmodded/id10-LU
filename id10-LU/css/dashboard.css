@@ -387,8 +387,3 @@ body {
     padding: 12px 24px;
 }
 
-@media (max-width: 768px) {
-    .tools-container {
-        grid-template-columns: 1fr;
-    }
-}

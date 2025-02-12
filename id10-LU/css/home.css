@@ -202,6 +202,7 @@ body {
 }
 
 .widget h4 {
+    font-style: none;
     margin: 0 0 15px 0;
     font-size: 1.2em;
     color: var(--buttons-color);
@@ -284,7 +285,7 @@ body {
 
 .footer-form input, 
 .footer-form textarea {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     margin: 8px 0;
     border: none;
