@@ -134,50 +134,129 @@ function showTask() {
 showTask();
 
 
-//Pomodoro Timer
 
+//pomodoro
 const start = document.getElementById("start");
 const stopp = document.getElementById("stop");
 const reset = document.getElementById("reset");
 const timer = document.getElementById("timer");
+const sessionCounter = document.getElementById("session-counter");
+const breakTimer = document.getElementById("break-timer");
+const progress = document.getElementById("progress");
 
-let timeLeft = 1500;
+let timeLeft = 1500; // 25 minutes
+let breakTimeLeft = 300; // 5 minutes
 let interval;
+let isPomodoro = true; // Tracks if it's Pomodoro or Break time
+let sessionsCompleted = 0;
 
+// Sound for notifications
+const sound = new Audio("notification-sound.mp3"); // Add a sound file
 
+// Update Timer Display
 const updateTimer = () => {
     const minutes = Math.floor(timeLeft / 60);
     const seconds = timeLeft % 60;
-
-    timer.innerHTML =
-    `${minutes.toString().padStart(2,"0")}
-    :
-    ${seconds.toString().padStart(2,"0")}`;
-}
-
-const startTimer = () => {
-    interval = setInterval(() => {
-        timeLeft--;
-        updateTimer();
-
-        if(timeLeft === 0 ){
-            clearInterval(interval);
-            alert("Times Up!");
-            timeLeft = 1500;
-            updateTimer();
-        }
-    },
-    1000)
+    timer.innerHTML = `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
 };
 
+// Update Break Timer Display
+const updateBreakTimer = () => {
+    const minutes = Math.floor(breakTimeLeft / 60);
+    const seconds = breakTimeLeft % 60;
+    breakTimer.innerHTML = `Break: ${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+};
+
+// Update Progress Bar
+const updateProgressBar = () => {
+    const totalTime = isPomodoro ? 1500 : 300; // Total time for Pomodoro or Break
+    const currentTime = isPomodoro ? timeLeft : breakTimeLeft;
+    const progressPercentage = ((totalTime - currentTime) / totalTime) * 100;
+    progress.style.width = `${progressPercentage}%`;
+};
+
+// Start Timer
+const startTimer = () => {
+    interval = setInterval(() => {
+        if (isPomodoro) {
+            timeLeft--;
+            updateTimer();
+            updateProgressBar();
+
+            if (timeLeft === 0) {
+                clearInterval(interval);
+                sound.play(); // Play sound when Pomodoro ends
+                alert("Pomodoro Complete! Time for a break.");
+                isPomodoro = false;
+                sessionsCompleted++;
+                sessionCounter.innerHTML = `Sessions Completed: ${sessionsCompleted}`;
+                startBreak();
+            }
+        } else {
+            breakTimeLeft--;
+            updateBreakTimer();
+            updateProgressBar();
+
+            if (breakTimeLeft === 0) {
+                clearInterval(interval);
+                sound.play(); // Play sound when Break ends
+                alert("Break Over! Start a new Pomodoro.");
+                isPomodoro = true;
+                timeLeft = 1500;
+                breakTimeLeft = 300;
+                updateTimer();
+                updateBreakTimer();
+                updateProgressBar();
+            }
+        }
+    }, 1000);
+};
+
+// Start Break
+const startBreak = () => {
+    breakTimeLeft = 300;
+    updateBreakTimer();
+    updateProgressBar();
+    startTimer();
+};
+
+// Stop Timer
 const stopTimer = () => clearInterval(interval);
 
+// Reset Timer
 const resetTimer = () => {
     clearInterval(interval);
     timeLeft = 1500;
+    breakTimeLeft = 300;
+    isPomodoro = true;
+    sessionsCompleted = 0;
     updateTimer();
-}
+    updateBreakTimer();
+    updateProgressBar();
+    sessionCounter.innerHTML = `Sessions Completed: ${sessionsCompleted}`;
+};
 
-start.addEventListener("click",startTimer);
-stopp.addEventListener("click",stopTimer);
-reset.addEventListener("click",resetTimer);
+const fullscreenButton = document.getElementById("fullscreen");
+const pomodoroCard = document.getElementById("c4");
+
+// Enter Full-Screen Mode for the Card
+fullscreenButton.addEventListener("click", () => {
+    if (!document.fullscreenElement) {
+        pomodoroCard.requestFullscreen(); // Enter full-screen for the card
+        fullscreenButton.textContent = "Exit Full Screen";
+    } else {
+        document.exitFullscreen(); // Exit full-screen
+        fullscreenButton.textContent = "Enter Full Screen";
+    }
+});
+
+// Handle Full-Screen Change
+document.addEventListener("fullscreenchange", () => {
+    if (!document.fullscreenElement) {
+        fullscreenButton.textContent = "Enter Full Screen";
+    }
+});
+// Event Listeners
+start.addEventListener("click", startTimer);
+stopp.addEventListener("click", stopTimer);
+reset.addEventListener("click", resetTimer);

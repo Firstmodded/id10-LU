@@ -321,6 +321,72 @@ body {
     background-color: var(--effects-color);
 }
 
+/* Progress Bar */
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: var(--primarybg-color);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--buttons-color);
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+/* Session Counter */
+.session-counter {
+    font-size: 1em;
+    font-weight: 500;
+    color: var(--text-color);
+    margin: 10px 0;
+}
+
+/* Break Timer */
+.break-timer {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: var(--text-color);
+    margin: 10px 0;
+}
+/* Full-Screen Mode Styles for the Card */
+#c4:fullscreen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primarybg-color);
+    border-radius: 0; /* Remove border radius in full-screen */
+}
+
+#c4:fullscreen .pomo-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+#c4:fullscreen .pomo-title {
+    font-size: 2.5em;
+}
+
+#c4:fullscreen .timer {
+    font-size: 5em;
+}
+
+#c4:fullscreen .pomo-button {
+    font-size: 1.2em;
+    padding: 12px 24px;
+}
+
 @media (max-width: 768px) {
     .tools-container {
         grid-template-columns: 1fr;
