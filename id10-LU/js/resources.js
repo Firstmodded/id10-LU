@@ -1,3 +1,7 @@
+// Retrieve the semester from local storage
+const semester = localStorage.getItem('semester');
+const semesterKey = `sem${semester}`; // Map semester number to semester key (e.g., sem1, sem2, etc.)
+
 // Cache DOM elements
 const professorFilter = document.getElementById("professor-filter");
 const searchBar = document.getElementById("search-bar");
@@ -61,6 +65,8 @@ const resources = [
 ];
 
 
+let exploreMode = false; // Tracks whether "Explore All Courses" is active
+
 // Populate professor filter
 function populateFilters() {
     try {
@@ -83,17 +89,18 @@ function populateSelect(selectElement, options) {
     });
 }
 
-// Filter courses based on user input
 function filterCourses() {
     try {
         const searchQuery = searchBar.value.toLowerCase();
         const selectedProfessor = professorFilter.value;
         const sortCriteria = sortBy.value;
 
+        // Filter courses based on search query, professor, and semester (if not in explore mode)
         const filteredCourses = courses.filter(course => {
             const matchesSearch = course.name.toLowerCase().includes(searchQuery) || course.course.toLowerCase().includes(searchQuery);
             const matchesProfessor = (selectedProfessor === "all" || course.professor === selectedProfessor);
-            return matchesSearch && matchesProfessor;
+            const matchesSemester = exploreMode ? true : course.semester === semesterKey; // Show all courses in explore mode
+            return matchesSearch && matchesProfessor && matchesSemester;
         });
 
         displayCourses(filteredCourses, sortCriteria);
@@ -101,6 +108,14 @@ function filterCourses() {
         console.error("Error filtering courses:", error);
     }
 }
+
+const exploreButton = document.getElementById("explore-button");
+
+exploreButton.addEventListener("click", () => {
+    exploreMode = !exploreMode; // Toggle explore mode
+    exploreButton.textContent = exploreMode ? "Show Current Semester" : "Explore All Courses"; // Update button text
+    filterCourses(); // Re-filter and display courses
+});
 
 // Sort courses based on criteria
 function sortCourses(courses, sortBy) {
@@ -125,21 +140,46 @@ function displayCourses(filteredCourses, sortBy) {
         return;
     }
 
-    const groupedBySemester = filteredCourses.reduce((groups, course) => {
-        const semester = course.semester;
-        if (!groups[semester]) groups[semester] = [];
-        groups[semester].push(course);
-        return groups;
-    }, {});
+    if (exploreMode) {
+        // Group courses by semester in explore mode
+        const groupedBySemester = filteredCourses.reduce((groups, course) => {
+            const semester = course.semester;
+            if (!groups[semester]) groups[semester] = [];
+            groups[semester].push(course);
+            return groups;
+        }, {});
 
-    for (const semester in groupedBySemester) {
+        for (const semester in groupedBySemester) {
+            const semesterSection = document.createElement("section");
+            semesterSection.innerHTML = `<h2>Courses for Semester ${semester.charAt(3)}</h2>`;
+
+            const coursesContainer = document.createElement("div");
+            coursesContainer.className = "courses-container";
+
+            const sortedCourses = sortCourses(groupedBySemester[semester], sortBy);
+            sortedCourses.forEach(course => {
+                coursesContainer.innerHTML += `
+                    <div class="course-item">
+                        <h3 class="course-title">
+                            <a href="#" onclick="viewCoursePortal('${course.course}')">${course.course} - ${course.name}</a>
+                        </h3>
+                        <p class="course-info">${course.credits} Credits | Professor: ${course.professor}</p>
+                    </div>
+                `;
+            });
+
+            semesterSection.appendChild(coursesContainer);
+            coursesList.appendChild(semesterSection);
+        }
+    } else {
+        // Display courses for the current semester with a heading
         const semesterSection = document.createElement("section");
-        semesterSection.innerHTML = `<h2>Courses for Semester ${semester.charAt(3)}</h2>`;
+        semesterSection.innerHTML = `<h2>Courses for Semester ${semester}</h2>`;
 
         const coursesContainer = document.createElement("div");
         coursesContainer.className = "courses-container";
 
-        const sortedCourses = sortCourses(groupedBySemester[semester], sortBy);
+        const sortedCourses = sortCourses(filteredCourses, sortBy);
         sortedCourses.forEach(course => {
             coursesContainer.innerHTML += `
                 <div class="course-item">
@@ -155,7 +195,6 @@ function displayCourses(filteredCourses, sortBy) {
         coursesList.appendChild(semesterSection);
     }
 }
-
 // Function to view the course portal
 function viewCoursePortal(courseCode) {
     try {
@@ -294,7 +333,7 @@ function viewCoursePortal(courseCode) {
 
 // Initialize everything
 populateFilters();
-filterCourses();
+filterCourses(); // Display courses for the current semester
 
 // Event listeners for updates
 professorFilter.addEventListener("change", filterCourses);

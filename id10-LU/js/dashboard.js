@@ -1,3 +1,26 @@
+// Retrieve data from local storage
+const studentName = localStorage.getItem('firstname');
+const semester = localStorage.getItem('semester');
+const major = localStorage.getItem('major'); 
+
+// Calculate the year based on the semester
+let year;
+if (semester >= 1 && semester <= 2) {
+    year = 1;
+} else if (semester >= 3 && semester <= 4) {
+    year = 2;
+} else if (semester >= 5 && semester <= 6) {
+    year = 3;
+} else {
+    year = 'Unknown'; // Fallback for invalid semester values
+}
+
+// Update the DOM with the retrieved data
+document.getElementById('student-name').textContent = studentName || 'Guest';
+document.getElementById('student-semester').textContent = semester || 'Unknown'; 
+document.getElementById('student-major').textContent = major || 'Unknown';
+document.getElementById('student-year').textContent = `Year ${year}`; 
+
 //widgets
 document.addEventListener("DOMContentLoaded", function () {
     const widgetUrls = [
@@ -25,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     });
 });
-
 
 /*TODO List*/
 

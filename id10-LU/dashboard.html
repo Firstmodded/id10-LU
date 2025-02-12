@@ -21,24 +21,17 @@
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-240 200-480l240-240 56 56-183 184 183 184-56 56Zm264 0L464-480l240-240 56 56-183 184 183 184-56 56Z"/></svg>
                 </button>
             </li>
-            <li class="active">
+            <li>
                 <a href="dashboard.html">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M520-600v-240h320v240H520ZM120-440v-400h320v400H120Zm400 320v-400h320v400H520Zm-400 0v-240h320v240H120Zm80-400h160v-240H200v240Zm400 320h160v-240H600v240Zm0-480h160v-80H600v80ZM200-200h160v-80H200v80Zm160-320Zm240-160Zm0 240ZM360-280Z"/></svg>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li>
-                <button onclick="toggleSubMenu(this)" class="dropdown-btn">
+                <a href="resources.html">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h480q33 0 56.5 23.5T800-800v640q0 33-23.5 56.5T720-80H240Zm0-80h480v-640h-80v280l-100-60-100 60v-280H240v640Zm0 0v-640 640Zm200-360 100-60 100 60-100-60-100 60Z"/></svg>
                     <span>Courses</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-360 280-560h400L480-360Z"/></svg>
-                </button>
-                <ul class="sub-menu">
-                    <div>
-                        <li><a href="#">Your Semester</a></li>
-                        <li><a href="resources.html">Explore</a></li>
-                    </div>
-                </ul>
+                </a>
             </li>
             <li>
                 <button onclick="toggleSubMenu(this)" class="dropdown-btn">
@@ -68,7 +61,7 @@
             </li>
         </ul>
     </nav>
-
+    
     <!-- Widgets Section -->
     <aside class="widgets-section">
         <div class="widget-container">
@@ -84,7 +77,11 @@
         <header class="header">
             <div class="header-content">
                 <h1>Welcome, <span id="student-name">Ali Abdallah</span>!</h1>
-                <p>Major: <span id="student-major">Computer Science</span> | Semester: <span id="student-semester">3</span></p>
+                <p>
+                    Major: <span id="student-major">Computer Science</span> | 
+                    Semester: <span id="student-semester">3</span> | 
+                    <span id="student-year">Year 2</span>
+                </p>
             </div>
         </header>
         <hr>

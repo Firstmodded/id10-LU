@@ -1,3 +1,15 @@
+/* Root variables for colors */
+:root {
+    --primary-color: #333; /* Blue */
+    --secondary-color: #6c757d; /* Gray */
+    --background-color: #f8f9fa; /* Light gray */
+    --text-color: #333; /* Dark gray */
+    --hover-color: #0056b3; /* Darker blue */
+    --border-color: #ddd; /* Light gray */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Body layout */
 body {
     display: grid;
     grid-template-columns: 250px auto; /* Sidebar and main content layout */
@@ -5,46 +17,85 @@ body {
     grid-template-areas:
         "side header"
         "side main";
-}
-
-h1 {
-    color: var(--text-color);
-    margin-bottom: 20px;
-    text-align: center;
+    background-color: var(--background-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 /* Main content area */
 .main-content {
     grid-area: main;
-    padding: 25px;
+    padding: 30px;
     width: 100%;
     overflow-x: hidden;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    margin: 20px;
+}
+
+/* Header styling */
+h1 {
+    color: var(--text-color);
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 /* Search and filter section */
 .search-filter-container {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
 }
 
 .search-bar,
-.filter-select {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    width: 48%;
+.filter-select,
+.explore-button {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
 }
 
 .search-bar {
-    margin-right: 20px;
+    flex: 1;
+    min-width: 250px;
+    background-color: white;
 }
 
-/* Fixed navbar */
-#navbar {
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
+.search-bar:focus,
+.filter-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.filter-select {
+    flex: 1;
+    min-width: 200px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.explore-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 12px 24px;
+}
+
+.explore-button:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
 }
 
 /* Course list layout */
@@ -53,10 +104,13 @@ section {
 }
 
 section h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 10px;
+    font-size: 1.75rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
     text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
 }
 
 /* Course container */
@@ -69,46 +123,49 @@ section h2 {
 
 /* Individual course item */
 .course-item {
-    background-color: #eef1f4;
-    padding: 15px;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow-color);
     flex: 1 1 calc(33.333% - 20px);
     max-width: calc(33.333% - 20px);
     box-sizing: border-box;
-    transition: transform 0.3s ease-in-out;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
 }
 
-/* Course item hover effects */
 .course-item:hover {
-    transform: scale(1.05);
-    background-color: #dbe3e8;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-color: var(--primary-color);
 }
 
 /* Course title and links */
 .course-item a {
-    color: inherit;
+    color: var(--primary-color);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 1.1rem;
 }
 
 .course-item a:hover {
-    color: #333;
+    color: var(--hover-color);
     text-decoration: underline;
 }
 
 /* Course title styling */
 .course-title {
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 5px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    font-size: 1.25rem;
 }
 
 /* Course info styling */
 .course-info {
     font-style: italic;
-    color: #777;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
 }
 
 /* Hide search and filter section in course view */
@@ -118,17 +175,38 @@ body.course-view .search-filter-container {
 
 /* Go back button */
 .go-back-button {
-    background-color: #007bff;
+    background-color: var(--primary-color);
     color: white;
     font-size: 16px;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
     margin-bottom: 20px;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    font-weight: 600;
 }
 
 .go-back-button:hover {
-    background-color: #333;
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .search-filter-container {
+        flex-direction: column;
+    }
+
+    .search-bar,
+    .filter-select,
+    .explore-button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .course-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
 }
