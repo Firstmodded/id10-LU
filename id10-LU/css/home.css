@@ -4,6 +4,7 @@
     --text-color: #353535; /* Dark text */
     --buttons-color: #333; /* Dark blue for buttons */
     --effects-color: #3c6e71; /* Teal for hover effects */
+    --buttons-color-2:#284b63;
 }
 
 html {
@@ -297,6 +298,15 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.footer-form button {
+    color: var(--primarybg-color);
+    background-color: var(--buttons-color-2);
+}
+
+.footer-form button:hover {
+    background-color: var(--effects-color);
 }
 
 .contributors {

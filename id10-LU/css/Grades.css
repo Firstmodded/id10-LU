@@ -1,3 +1,11 @@
+:root {
+    --primarybg-color: #ffffff;
+    --secondarybg-color: #f0f0f0;
+    --text-color: #353535;
+    --buttons-color: #284b63;
+    --effects-color: #3c6e71;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
@@ -9,12 +17,16 @@ h1, h2 {
     margin-bottom: 20px;
 }
 
+h1,h3 {
+    margin-left: 150px;
+}
+
 form {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0 0 0 550px;
     background-color: #fff;
     padding: 30px;
     border-radius: 10px;
@@ -42,7 +54,7 @@ input[type="number"] {
 button {
     grid-column: span 2;
     padding: 12px 25px;
-    background: rgba(0, 0, 0, 0.5);
+    background: var(--text-color);
     color: white;
     border: none;
     border-radius: 6px;
@@ -53,7 +65,7 @@ button {
 }
 
 button:hover {
-    background: rgba(0, 0, 0, 0.8);
+    background: var(--effects-color);
 }
 
 h3 {

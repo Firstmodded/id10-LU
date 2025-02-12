@@ -67,7 +67,7 @@ function getSignupFormErrors(firstname, semester, email, password, major) {
     return errors;
 }
 
-const allInputs = [firstname_input, semester_input, email_input, password_input];
+const allInputs = [firstname_input, semester_input, email_input, password_input,major_input];
 
 allInputs.forEach(input => {
     input.addEventListener('input', () => {

@@ -127,7 +127,7 @@ form div.incorrect label {
     background-color: #ff4444;
 }
 
-form div.incorrect input {
+form div.incorrect input , form div.incorrect select{
     border-color: #ff4444;
 }
 

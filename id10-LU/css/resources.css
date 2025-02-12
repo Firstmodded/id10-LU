@@ -4,9 +4,10 @@
     --secondary-color: #6c757d; /* Gray */
     --background-color: #f8f9fa; /* Light gray */
     --text-color: #333; /* Dark gray */
-    --hover-color: #0056b3; /* Darker blue */
+    --hover-color: #3c6e71; /* Darker blue */
     --border-color: #ddd; /* Light gray */
     --shadow-color: rgba(0, 0, 0, 0.1);
+    --button-color:#284b63;
 }
 
 /* Body layout */
@@ -85,7 +86,7 @@ h1 {
 }
 
 .explore-button {
-    background-color: var(--primary-color);
+    background-color: var(--text-color);
     color: white;
     border: none;
     cursor: pointer;
